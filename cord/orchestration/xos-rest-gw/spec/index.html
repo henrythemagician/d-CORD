@@ -1,0 +1,78 @@
+
+<!--
+Copyright 2017-present Open Networking Foundation
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <script src="http://localhost:4000/socket.io/socket.io.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      crossorigin="anonymous"></script>
+    <script src="https://rawgit.com/notifyjs/notifyjs/master/dist/notify.js"></script>
+
+    <style>
+      body {
+        max-width: 100%;
+      }
+    </style>
+    <script>
+      /* global io $ alert*/
+      function enableSocket(auth) {
+
+        auth.user = JSON.parse(auth.user);
+
+        var socket = io.connect('http://localhost:4000', {
+          query: 'name=' + auth.user.username + '&token=' + auth.xoscsrftoken + '&sessionId=' + auth.xossessionid + '&id=' + auth.user.id
+        });
+        socket.on('event', function(data) {
+          var p = $('body').append('<p></p>');
+          p.append('<b>' + data.model + '</b><br/>');
+          p.append('<i>' + JSON.stringify(data.msg.changed_fields) + '</i>');
+          p.append('<pre>' + JSON.stringify(data.msg.object) + '</pre>');
+          console.log(data.object);
+          $.notify(data.model + ': ' + JSON.stringify(data.msg.object.name) + 'updated', 'success');
+        });
+      }
+
+      function login() {
+        var username = $('#username').val();
+        var password = $('#password').val();
+
+        $.get('http://localhost:4000/api/utility/login?username='+username+'&password='+password,
+          function(res) {
+            enableSocket(res);
+            $('#login').hide();
+          }
+        )
+        .fail(function(e) {
+          alert( 'error' );
+          console.log(e);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <form onsubmit="login()" id="login">
+      <input type="text" id="username">
+      <input type="password" id="password">
+      <input type="button" value="Login" onclick="login()">
+    </form>
+  </body>
+</html>

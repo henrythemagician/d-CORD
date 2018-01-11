@@ -1,0 +1,42 @@
+option name = "vnodlocal";
+option app_label = "vnodlocal";
+
+message VnodLocalSystem (PlCoreBase){
+     option verbose_name = "VNOD Local System";
+
+     required string name = 1 [db_index = False, max_length = 256, null = False, blank = False];
+     required string description = 2 [db_index = False, max_length = 1024, null = False, blank = False];
+     required string restUrl = 3 [db_index = False, max_length = 256, null = False, blank = False];
+     required string username = 4 [db_index = False, max_length = 32, null = False, blank = True];
+     required string password = 5 [db_index = False, max_length = 32, null = False, blank = True];
+     required string administrativeState = 6 [default = "enabled", choices = "(('enabled', 'Enabled'), ('disabled', 'Disabled'))", max_length = 16, blank = False, null = False, db_index = False];
+     required string pseudowireprovider = 7 [default = "none", max_length = 256, null = False, db_index = False, blank = False];
+     required string networkControllerUrl = 8 [db_index = False, max_length = 256, null = False, blank = True];
+}
+
+message VnodLocalService (Service){
+     option verbose_name = "Virtual Network On Demand Local Service";
+
+     required string portid = 1 [db_index = False, max_length = 256, null = False, blank = True];
+     required string vlanid = 2 [db_index = False, max_length = 256, null = False, blank = True];
+     required string servicehandle = 3 [db_index = False, max_length = 256, null = False, blank = False];
+     required bool autoattached = 4 [default = False, null = False, db_index = False, blank = True];
+     required string administrativeState = 5 [default = "disabled", choices = "(('disabled', 'Disabled'), ('configurationrequested', 'ConfigurationRequested'), ('configurationfailed', 'ConfigurationFailed'), ('configured', 'Configured'), ('activationrequested', 'ActivationRequested'), ('activationfailed', 'ActivationFailed'), ('enabled', 'Enabled'), ('deactivationrequested', 'DeactivationRequested'))", max_length = 64, blank = False, null = False, db_index = False];
+     required string operstate = 6 [default = "inactive", choices = "(('active', 'Active'), ('inactivereported', 'InactiveReported'), ('inactive', 'Inactive'), ('activereported', 'ActiveReported'))", max_length = 64, blank = False, null = False, db_index = False];
+}
+
+message VnodLocalPseudowireConnectorService (Service){
+     option verbose_name = "Virtual Network On Demand Local Pseudo-wire Connector Service";
+
+     required string servicehandle = 1 [db_index = False, max_length = 256, null = False, blank = False];
+     required string pseudowirehandle = 2 [db_index = False, max_length = 256, null = False, blank = True];
+     required string internalport = 3 [db_index = False, max_length = 256, null = False, blank = False];
+     optional manytoone vnodlocal->VnodLocalService:VnodLocalService = 4 [db_index = True, null = True, blank = False];
+     required string administrativeState = 5 [default = "disabled", choices = "(('disabled', 'Disabled'), ('activationrequested', 'ActivationRequested'), ('enabled', 'Enabled'), ('deactivationrequested', 'DeactivationRequested'))", max_length = 64, blank = False, null = False, db_index = False];
+     required string operstate = 6 [default = "inactive", choices = "(('active', 'Active'), ('inactive', 'Inactive'))", max_length = 64, blank = False, null = False, db_index = False];
+}
+
+
+
+
+

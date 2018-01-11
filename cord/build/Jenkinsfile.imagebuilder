@@ -1,0 +1,46 @@
+// Copyright 2017-present Open Networking Foundation
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+stage('checkout') {
+    node('master'){
+      checkout(changelog: false, poll: false, scm: [$class: 'RepoScm', \
+        manifestRepositoryUrl: 'https://gerrit.opencord.org/manifest.git', \
+        manifestBranch: 'master', currentBranch: true, \
+        manifestFile: 'default.xml', \
+        destinationDir: 'cord', \
+        forceSync: true, resetFirst: true, \
+        quiet: false, jobs: 4, showAllChanges: true])
+   }
+}
+
+stage('imagebuilder'){
+  node('master') {
+    sh '$WORKSPACE/imagebuilder.py -v -b -r cord/ -c cord/docker_images.yml -l image_logs -a ib_actions.yml -g ib_graph.dot'
+  }
+}
+
+stage('push'){
+  node('master'){
+    def ib_actions = readYaml( file:"$WORKSPACE/ib_actions.yml" )
+
+    withDockerRegistry([credentialsId: 'docker-artifact-push-credentials']) {
+      for(image in ib_actions.ib_built){
+        echo "Pushing image: " + image.push_name
+        docker.image(image.push_name).push()
+      }
+    }
+  }
+}
+
+echo "All done"

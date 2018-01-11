@@ -1,0 +1,71 @@
+
+<!--
+Copyright 2017-present Open Networking Foundation
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+
+<!-- Custom template for Typeahead -->
+<script type="text/ng-template" id="customTemplate.html">
+  <a>
+    <span ng-bind-html="match.label.label | uibTypeaheadHighlight:query"></span>
+    <code class="pull-right">
+      {{match.label.type}}
+    </code>
+  </a>
+</script>
+<!-- END Custom template for Typeahead -->
+
+<!-- Header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div id="mobile-menu">
+        <minimaliza-menu></minimaliza-menu>
+      </div>
+      <a class="navbar-brand" href="#/">
+        <img class="img-responsive" ng-src="{{vm.getLogo()}}" alt="">
+        <span>v.{{vm.version}}</span>
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <minimaliza-menu></minimaliza-menu>
+      <form class="navbar-form navbar-left">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Navigate routes (press 'f' to select)"
+          style="width: 275px"
+          ng-model="vm.query"
+          uib-typeahead="state for state in vm.search($viewValue) | limitTo:30"
+          typeahead-template-url="customTemplate.html"
+          typeahead-on-select="vm.routeSelected($item, $model, $label)">
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <!--<li class="dropdown">-->
+          <!--<a ui-sref="main.versions">-->
+            <!--<i class="fa fa-bell"></i>-->
+            <!--<span ng-if="vm.newNotifications.length > 0" class="label label-warning pull-right">{{vm.newNotifications.length}}</span>-->
+          <!--</a>-->
+        <!--</li>-->
+        <li class=" profil-link">
+          <a ui-sref="commonviews.login">
+            <span class="profile-address">{{vm.userEmail}}</span>
+            <img src="../../images/profile.jpg" class="img-circle" alt="">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
