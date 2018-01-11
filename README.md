@@ -1,3 +1,3 @@
-# S-Fabric
+# d-CORD
  
-S-Fabric is a novel data center network design, which provides a sliced control plane and a policy-based user-defined data plane. By slicing the network through flows, and assigning a non-replica controller to each slice, S-Fabric achieves flexibility and elasticity, while ensuring isolation and separation. We leverage (but not limited to) a two-tiered spine and leaf architecture, and define forwarding rules for spine, leaf and edge switch respectively. By simplifying the flow table, S-Fabric keeps the number of forwarding rules on spine switches equal to the number of used leaf/edge ports inside a data center. By matching subnets in slices to VLANs on the edge switches, S-Fabric brings backwards compatibility to traditional data centers. S-Fabric enables an incremental deployment of SDN in traditional data centers, since it requires no SDN capability on the spine/core switches.
+d-CORD is the project to build a distributed CORD deployment.
