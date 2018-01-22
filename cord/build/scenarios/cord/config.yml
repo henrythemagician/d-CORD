@@ -77,22 +77,22 @@ setup_automation_prereqs:
 
 # Vagrant VM configuration
 vagrant_vms:
-  - corddev
-  - head1
+#  - corddev
+#  - head1
 
-dev_vm_mem: 2048
-dev_vm_cpu: 1
+#dev_vm_mem: 2048
+#dev_vm_cpu: 1
 
-head_vm_mem: 16384
-head_vm_cpu: 8
+#head_vm_mem: 16384
+#head_vm_cpu: 8
 
-compute_vm_mem: 16384
-compute_vm_cpu: 8
+#compute_vm_mem: 16384
+#compute_vm_cpu: 8
 
-switch_vm_mem: 512
-switch_vm_cpu: 1
+#switch_vm_mem: 512
+#switch_vm_cpu: 1
 
-vm_management_network_name: cordmgmt
+#vm_management_network_name: cordmgmt
 
 # Enable experimental fabric
 enable_fabric: True
@@ -153,9 +153,11 @@ inventory_groups:
       ansible_connection: local
 
   build:
-    corddev:
+    localhost:
 
   head:
-    head1:
+    ansible_host: 192.168.121.1
+
 
   compute:
+    ansible_host: 10.109.0.230
