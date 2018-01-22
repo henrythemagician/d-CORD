@@ -27,8 +27,8 @@ build_cord_dir: "/opt/cord"
 build_cord_profile_dir: "/opt/cord_profile"
 host_cord_profile_dir: "~/cord_profile"
 
-buildnode: localhost
-#headnode: head1
+buildnode: corddev
+headnode: localhost
 
 # docker config
 deploy_docker_registry: "docker-registry:5000"
@@ -76,12 +76,12 @@ setup_automation_prereqs:
   - deploy-openstack
 
 # Vagrant VM configuration
-vagrant_vms:
-  - corddev
+#vagrant_vms:
+#  - corddev
 #  - head1
 
-dev_vm_mem: 2048
-dev_vm_cpu: 1
+#dev_vm_mem: 2048
+#dev_vm_cpu: 1
 
 #head_vm_mem: 16384
 #head_vm_cpu: 8
@@ -140,6 +140,10 @@ docker_image_whitelist:
 
 # node topology
 physical_node_list:
+  - name: corddev
+      ipv4_last_octet: 232
+      aliases:
+        - corddev
   - name: head1
     ipv4_last_octet: 231
     aliases:
@@ -158,6 +162,7 @@ inventory_groups:
 
   build:
     corddev:
+      ansible_host: 10.109.0.232
 
   head:
     localhost:
