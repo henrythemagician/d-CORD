@@ -129,7 +129,7 @@ inventory_groups:
       ansible_connection: local
 
   head:
-    head1:
+    '192.168.121.1':
 # If you do not have DNS set up that will resolve the headnode address, you can
 # specify the IP address here.
 #
@@ -143,7 +143,7 @@ inventory_groups:
 #      ansible_ssh_pass: password
 
   compute:
-    compute1:
+    '10.109.0.230':
        ansible_host: 10.109.0.230
 #      ansible_user: cloud
 #      ansible_ssh_pass: password
