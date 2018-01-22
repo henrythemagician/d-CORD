@@ -76,7 +76,7 @@ setup_automation_prereqs:
   - deploy-openstack
 
 # Vagrant VM configuration
-vagrant_vms:
+#vagrant_vms:
 #  - corddev
 #  - head1
 
