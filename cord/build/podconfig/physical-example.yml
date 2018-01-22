@@ -71,19 +71,19 @@ cord_profile: rcord
 # specify the head node user here in user@hostname format.  This could also be
 # `cord@headnode.site1.opencord.org` as specified later in inventory, if
 # external DNS is set up.
-headnode: 'hshen@192.168.121.1'
+#headnode: 'hshen@192.168.121.1'
 
 # External interface device name on head node
-external_iface: 'macvlan3'
+#external_iface: 'macvlan3'
 
 # External interface ip/range on head node
-external_ip: '10.106.0.1/24'
+#external_ip: '10.106.0.1/24'
 
 # Gateway IP address
-external_gw: '10.106.0.254'
+#external_gw: '10.106.0.254'
 
 # address and port of docker registry (on the head node)
-deploy_docker_registry: "10.109.0.231:5000"
+#deploy_docker_registry: "10.109.0.231:5000"
 
 # Additional network config documentation can be found here:
 # https://guide.opencord.org/appendix_network_settings.html
