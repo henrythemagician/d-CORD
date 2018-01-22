@@ -129,11 +129,11 @@ inventory_groups:
       ansible_connection: local
 
   head:
-    '192.168.121.1':
+    '10.109.0.231':
 # If you do not have DNS set up that will resolve the headnode address, you can
 # specify the IP address here.
 #
-      ansible_host: 192.168.121.1
+      ansible_host: 10.109.0.231
 #
 # Set these if you don't have SSH keys set up between the config node (where
 # make runs) and the head node. Also, make sure to enable the 'config-ssh-key'
