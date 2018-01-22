@@ -120,13 +120,13 @@ skipTags:
 # There must be config, build, head, and compute sections
 inventory_groups:
 
-#  config:
-#    localhost:
-#      ansible_connection: local
+  config:
+    localhost:
+      ansible_connection: local
 
-#  build:
-#    localhost:
-#      ansible_connection: local
+  build:
+    localhost:
+      ansible_connection: local
 
   head:
     '192.168.121.1':
