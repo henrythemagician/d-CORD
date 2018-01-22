@@ -139,10 +139,10 @@ inventory_groups:
 # make runs) and the head node. Also, make sure to enable the 'config-ssh-key'
 # further up in the file to create these.
 #
-      ansible_user: hshen
+#      ansible_user: hshen
 #      ansible_ssh_pass: password
 
   compute:
       ansible_host: 10.109.0.230
-      ansible_user: cloud
+#      ansible_user: cloud
 #      ansible_ssh_pass: password
