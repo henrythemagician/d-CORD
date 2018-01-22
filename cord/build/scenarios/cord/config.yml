@@ -144,6 +144,10 @@ physical_node_list:
     ipv4_last_octet: 1
     aliases:
       - head
+  - name: compute1
+    ipv4_last_octet: 1
+    aliases:
+      - compute
 
 # Inventory for ansible, used to generate inventory.ini
 inventory_groups:
@@ -156,8 +160,9 @@ inventory_groups:
     localhost:
 
   head:
-    ansible_host: 192.168.121.1
-
+    head1:
+      ansible_host: 192.168.121.1
 
   compute:
-    ansible_host: 10.109.0.230
+    compute1:
+      ansible_host: 10.109.0.230
