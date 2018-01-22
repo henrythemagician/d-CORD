@@ -21,7 +21,7 @@
       amc_username: "co@opencloud.us"
       amc_password: "XOScdn123$"
       amc_plc_name: "CoBlitz Test"
-      amc_remote_hostname: "10.6.1.197"
+      amc_remote_hostname: "10.106.15.197"
       rrnode_hostname: "rr1.lab.local"
   tasks:
       - name: Create site

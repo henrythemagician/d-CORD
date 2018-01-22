@@ -19,6 +19,7 @@ Vagrant.configure(2) do |config|
       inline: "route del default eth0"
     d.vm.provision :shell, inline: "route add -net 134.76.22.0 netmask 255.255.255.0 gw 10.109.0.254"
     d.vm.provision :shell, inline: "route add default gw 10.106.0.254"
+    d.vm.provision :shell, inline: "ping -c 3 10.109.0.254"
   #  d.vm.provision :shell, path: $cordpath + "/build/scripts/bootstrap_ansible.sh"
   #  d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /opt/cord/build/ansible/corddev.yml -c localhost"
     d.vm.synced_folder $cordpath, "/opt/cord"

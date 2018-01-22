@@ -54,7 +54,7 @@ class vsg_exchange(CordLogger):
     V_INF1 = 'veth0'
     device_id = 'of:' + get_mac()
     TEST_IP = '8.8.8.8'
-    HOST = "10.1.0.1"
+    HOST = "10.106.0.1"
     USER = "vagrant"
     PASS = "vagrant"
     head_node = os.getenv('HEAD_NODE', 'prod')

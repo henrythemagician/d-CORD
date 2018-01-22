@@ -1,5 +1,5 @@
 ---
-cmi_compute_node: 10.1.0.16
+cmi_compute_node: 10.106.0.16
 cmi_compute_node_key: /opt/cord_profile/node_key
 cmi_mgmt_ip: 172.27.0.7
 cmi_root_user: root

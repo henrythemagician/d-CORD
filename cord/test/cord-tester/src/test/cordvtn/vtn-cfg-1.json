@@ -2,13 +2,13 @@
  "apps" : {
    "org.opencord.vtn" : {
      "cordvtn" : {
-       "controllers" : [ "10.1.0.1:6654" ],
+       "controllers" : [ "10.106.0.1:6654" ],
        "localManagementIp" : "172.27.0.1/24",
        "nodes" : [ {
          "bridgeId" : "of:0000525400201852",
          "dataPlaneIntf" : "fabric",
-         "dataPlaneIp" : "10.6.1.2/24",
-         "hostManagementIp" : "10.1.0.14/24",
+         "dataPlaneIp" : "10.106.15.2/24",
+         "hostManagementIp" : "10.106.0.14/24",
          "hostname" : "cold-flag"
        } ],
        "openstack" : {
@@ -20,10 +20,10 @@
        "ovsdbPort" : "6641",
        "privateGatewayMac" : "00:00:00:00:00:01",
        "publicGateways" : [ {
-         "gatewayIp" : "10.6.1.193",
+         "gatewayIp" : "10.106.15.193",
          "gatewayMac" : "02:42:0a:06:01:01"
        }, {
-         "gatewayIp" : "10.6.1.129",
+         "gatewayIp" : "10.106.15.129",
          "gatewayMac" : "02:42:0a:06:01:01"
        } ],
        "ssh" : {

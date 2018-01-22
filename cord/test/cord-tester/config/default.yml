@@ -20,7 +20,7 @@
 # via `vargrant up headnode` from the gerrit.opencord.org/maas repository.
 ---
 seedServer:
-  ip: '10.100.198.201'
+  ip: '10.106.0.1'
 
   # User name and password used by Ansible to connect to the host for remote
   # provisioning
@@ -37,10 +37,10 @@ seedServer:
     - 'switch_support'
     - 'interface_config'
 
-  management_ip: '10.1.0.1/24'
+  management_ip: '10.106.0.1/24'
   management_iface: 'eth2'
   external_iface: 'eth0'
-  management_network: '10.1.0.0/24'
+  management_network: '10.106.0.0/24'
 
   # Specifies the extra settings required for this configuration
   #

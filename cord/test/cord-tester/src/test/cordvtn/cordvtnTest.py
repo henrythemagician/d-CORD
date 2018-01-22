@@ -120,7 +120,7 @@ class cordvtn_exchange(CordLogger):
     head_node_user = 'vagrant'
     head_node_pass = 'vagrant'
     head_node = os.getenv('HEAD_NODE', 'prod')
-    head_node_ip = '10.1.0.1'
+    head_node_ip = '10.106.0.1'
     HEAD_NODE = head_node + '.cord.lab' if len(head_node.split('.')) == 1 else head_node
 
 
@@ -667,18 +667,18 @@ class cordvtn_exchange(CordLogger):
 
         ## TO DO New instance is not getting subnet ip, hence checking only mysite-vsg1 vm from compute node
         if compute_details is None:
-           compute_ip = '10.1.0.17'
+           compute_ip = '10.106.0.17'
         else:
            compute_ip = compute_details.ip
 
         ## TO DO New instance is not getting subnet ip, hence checking only mysite-vsg1 vm from compute node
         if target_tenants_details == {}:
-           target_tenants_details = '10.1.0.1'
+           target_tenants_details = '10.106.0.1'
 
         ## TO DO New instance is not getting subnet ip, hence checking only mysite-vsg1 vm from compute node
         if source_tenants_details is not None:
            if source_tenants_details == {}:
-              source_tenants_details = '10.1.0.1'
+              source_tenants_details = '10.106.0.1'
 
         if check_type == "Ping_from_compute":
            cmd2 = "ping -c 3 {0}".format(target_tenants_details)
@@ -933,7 +933,7 @@ class cordvtn_exchange(CordLogger):
         4. Validate network synch with created network in cord-onos
         """
         test_net_name = 'vtn_test_9_net_public'
-        test_sub_net_cidr = ["public","10.6.1.192/26",'10.6.1.193']
+        test_sub_net_cidr = ["public","10.106.15.192/26",'10.106.15.193']
         result = self.neutron_network_creation_and_validation(test_net_name)
         assert_equal(result, True)
         sub_result = self.neutron_subnet_creation_and_validation(test_net_name,test_sub_net_cidr)
@@ -950,7 +950,7 @@ class cordvtn_exchange(CordLogger):
         3. Do GET Rest API and validate creation of network
         """
         test_net_name = 'vtn_test_10_net_public'
-        test_sub_net_cidr = ["public","10.6.1.192/26", '10.6.1.193']
+        test_sub_net_cidr = ["public","10.106.15.192/26", '10.106.15.193']
         result = self.neutron_network_creation_and_validation(test_net_name)
         assert_equal(result, True)
         sub_result = self.neutron_subnet_creation_and_validation(test_net_name,test_sub_net_cidr)
@@ -986,7 +986,7 @@ class cordvtn_exchange(CordLogger):
         5. Verified that onos is having under management network
         """
         test_net_name = 'vtn_test_11_net_public'
-        test_sub_net_cidr = ["public","10.6.1.192/26", '10.6.1.193']
+        test_sub_net_cidr = ["public","10.106.15.192/26", '10.106.15.193']
         test_management_type = "public"
         result = self.neutron_network_creation_and_validation(test_net_name)
         assert_equal(result, True)
@@ -1027,7 +1027,7 @@ class cordvtn_exchange(CordLogger):
         5. Validate new nova instance is created on nova service
         """
         test_net_name = 'vtn_test_12_net_public'
-        test_sub_net_cidr = ["public","10.6.1.192/26",'10.6.1.193']
+        test_sub_net_cidr = ["public","10.106.15.192/26",'10.106.15.193']
         instance_vm_name = 'vtn_test_12_nova_instance_public_net'
         image_name = "vsg-1.1"
         flavor_id = 'm1.small'
@@ -1355,7 +1355,7 @@ class cordvtn_exchange(CordLogger):
         6. Verify ping is not getting successful from compute node to nova instance which is created in step 4.
         """
         test_net_name = 'vtn_test_21_net_public'
-        test_sub_net_cidr = ["public","10.6.1.192/26",'10.6.1.193']
+        test_sub_net_cidr = ["public","10.106.15.192/26",'10.106.15.193']
         test_management_type = "public"
         instance_vm_name = 'vtn_test_21_nova_instance_pulic_net'
         image_name = "vsg-1.1"
@@ -1395,7 +1395,7 @@ class cordvtn_exchange(CordLogger):
         6. Verify ping is getting successful from compute node to nova instance which is created in step 4.
         """
         test_net_name = 'vtn_test_22_net_public'
-        test_sub_net_cidr = ["public","10.6.1.192/26",'10.6.1.193']
+        test_sub_net_cidr = ["public","10.106.15.192/26",'10.106.15.193']
         test_management_type = "public"
         instance_vm_name = 'vtn_test_22_nova_instance_public_net'
         image_name = "vsg-1.1"
@@ -1437,7 +1437,7 @@ class cordvtn_exchange(CordLogger):
         8. Now try to ping from one nova instance to other instance, should not success
         """
         test_net_name = 'vtn_test_23_net_public'
-        test_sub_net_cidr = ["public","10.6.1.192/26",'10.6.1.193']
+        test_sub_net_cidr = ["public","10.106.15.192/26",'10.106.15.193']
         test_management_type = "public"
         first_instance_vm_name = 'vtn_test_23_nova_1st_instance_public_net'
         second_instance_vm_name = 'vtn_test_23_nova_2nd_instance_public_net'
@@ -1484,7 +1484,7 @@ class cordvtn_exchange(CordLogger):
         5. Validate new nova instance is created on nova service
         """
         test_netA_name = 'vtn_test_24_netA_public'
-        test_sub_netA_cidr = ["public","10.6.1.192/26",'10.6.1.193']
+        test_sub_netA_cidr = ["public","10.106.15.192/26",'10.106.15.193']
         netA_instance_vm_name = 'vtn_test_24_nova_netA_instance_public_net'
         test_netB_name = 'vtn_test_24_netB_public'
         test_sub_netB_cidr = ["public","10.6.2.192/26",'10.6.2.193']
@@ -1701,7 +1701,7 @@ class cordvtn_exchange(CordLogger):
         6. Verify ping is getting successful from compute node to nova instance which is created in step 4.
         """
         test_two_networks_name = ['vtn_test_29_net_management','vtn_test_29_net_public']
-        test_two_sub_networks_cidr = [["management","172.27.0.0/24", "172.27.0.20", "172.27.0.21"], ["public","10.6.1.192/26",'10.6.1.193']]
+        test_two_sub_networks_cidr = [["management","172.27.0.0/24", "172.27.0.20", "172.27.0.21"], ["public","10.106.15.192/26",'10.106.15.193']]
         test_management_type = ["management_local", 'public']
         instance_vm_name = 'vtn_test_29_nova_instance_management_net'
 #        image_name = "vsg-1.1"
@@ -1768,7 +1768,7 @@ class cordvtn_exchange(CordLogger):
         8. Now unpause the nova instance and check connectivity
         """
         test_two_networks_name = ['vtn_test_30_net_management','vtn_test_30_net_public']
-        test_two_sub_networks_cidr = [["management","172.27.0.0/24", "172.27.0.20", "172.27.0.21"], ["public","10.6.1.192/26",'10.6.1.193']]
+        test_two_sub_networks_cidr = [["management","172.27.0.0/24", "172.27.0.20", "172.27.0.21"], ["public","10.106.15.192/26",'10.106.15.193']]
         test_management_type = ["management_local", 'public']
         instance_vm_name = 'vtn_test_30_nova_instance_management_net'
 #        image_name = "vsg-1.1"
@@ -1858,7 +1858,7 @@ class cordvtn_exchange(CordLogger):
         8. Now resume the nova instance and check connectivity
         """
         test_two_networks_name = ['vtn_test_31_net_management','vtn_test_31_net_public']
-        test_two_sub_networks_cidr = [["management","172.27.0.0/24", "172.27.0.20", "172.27.0.21"], ["public","10.6.1.192/26",'10.6.1.193']]
+        test_two_sub_networks_cidr = [["management","172.27.0.0/24", "172.27.0.20", "172.27.0.21"], ["public","10.106.15.192/26",'10.106.15.193']]
         test_management_type = ["management_local", 'public']
         instance_vm_name = 'vtn_test_31_nova_instance_management_net'
 #        image_name = "vsg-1.1"
@@ -1948,7 +1948,7 @@ class cordvtn_exchange(CordLogger):
         8. Now start the nova instance and check connectivity
         """
         test_two_networks_name = ['vtn_test_32_net_management','vtn_test_32_net_public']
-        test_two_sub_networks_cidr = [["management","172.27.0.0/24", "172.27.0.20", "172.27.0.21"], ["public","10.6.1.192/26",'10.6.1.193']]
+        test_two_sub_networks_cidr = [["management","172.27.0.0/24", "172.27.0.20", "172.27.0.21"], ["public","10.106.15.192/26",'10.106.15.193']]
         test_management_type = ["management_local", 'public']
         instance_vm_name = 'vtn_test_32_nova_instance_management_net'
 #        image_name = "vsg-1.1"
@@ -2602,7 +2602,7 @@ class cordvtn_exchange(CordLogger):
         assert_equal(status, True)
         cmd = 'sudo ifconfig br-int down'
         #compute_details = self.get_compute_nodes()
-        compute_details = '10.1.0.17'
+        compute_details = '10.106.0.17'
         ssh_agent = SSHTestAgent(host = compute_details)
         status, output = ssh_agent.run_cmd(cmd, timeout = 5)
         print output
@@ -2633,7 +2633,7 @@ class cordvtn_exchange(CordLogger):
         flavor_id = 'm1.small'
         cmd = 'sudo ifconfig br-int down'
         #compute_details = self.get_compute_nodes()
-        compute_details = '10.1.0.17'
+        compute_details = '10.106.0.17'
         ssh_agent = SSHTestAgent(host = compute_details)
         status, output = ssh_agent.run_cmd(cmd, timeout = 5)
         print output
@@ -2663,7 +2663,7 @@ class cordvtn_exchange(CordLogger):
         assert_equal(status, False)
         cmd = 'sudo ifconfig br-int up'
         #compute_details = self.get_compute_nodes()
-        compute_details = '10.1.0.17'
+        compute_details = '10.106.0.17'
         ssh_agent = SSHTestAgent(host = compute_details)
         status, output = ssh_agent.run_cmd(cmd, timeout = 5)
         print output
@@ -2692,7 +2692,7 @@ class cordvtn_exchange(CordLogger):
         flavor_id = 'm1.small'
         cmd = 'sudo ifconfig br-int down'
         #compute_details = self.get_compute_nodes()
-        compute_details = '10.1.0.17'
+        compute_details = '10.106.0.17'
         ssh_agent = SSHTestAgent(host = compute_details)
         status, output = ssh_agent.run_cmd(cmd, timeout = 5)
         print output
@@ -2728,7 +2728,7 @@ class cordvtn_exchange(CordLogger):
         assert_equal(status, False)
         cmd = 'sudo ifconfig br-int up'
         #compute_details = self.get_compute_nodes()
-        compute_details = '10.1.0.17'
+        compute_details = '10.106.0.17'
         ssh_agent = SSHTestAgent(host = compute_details)
         status, output = ssh_agent.run_cmd(cmd, timeout = 5)
         print output
@@ -3876,7 +3876,7 @@ class cordvtn_exchange(CordLogger):
 	    2) Validate that compute node is being created and get compute node name by using "sudo cord prov list".
 	    3) From CORD-Test container, use python-neutron client and create two networks with name - NetA and NetB with an IP as private network.
 	       (neutron net-create net-A-private, neutron subnet-create net-A-private 10.0.0.0/24).
-	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.1.0.0/24).
+	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.106.0.0/24).
 	    4) Now boot 2 images in the same created network using nova boot image command (example given below :-
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-A-vm-01
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-B-vm-01
@@ -3982,7 +3982,7 @@ class cordvtn_exchange(CordLogger):
 		$ curl -X POST -H "Content-Type: application/json" -u onos:rocks -d @data.json http://$OC1:8181/onos/cordvtn/serviceNetworks
 	    4) From CORD-Test container, use python-neutron client and create two networks with name - NetA and NetBwith an IP as private network.
 	       (neutron net-create net-A-private, neutron subnet-create net-A-private 10.0.0.0/24).
-	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.1.0.0/24).
+	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.106.0.0/24).
 	    5) Now boot 2 images in the same created network using nova boot image command (example given below :-
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-A-vm-01
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-B-vm-01
@@ -4005,7 +4005,7 @@ class cordvtn_exchange(CordLogger):
 		$ curl -X POST -H "Content-Type: application/json" -u onos:rocks -d @data.json http://$OC1:8181/onos/cordvtn/serviceNetworks
 	    4) From CORD-Test container, use python-neutron client and create two networks with name - NetA and NetBwith an IP as private network.
 	       (neutron net-create net-A-private, neutron subnet-create net-A-private 10.0.0.0/24).
-	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.1.0.0/24).
+	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.106.0.0/24).
 	    5) Now boot 2 images in the same created network using nova boot image command (example given below :-
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-A-vm-01
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-B-vm-01
@@ -4028,7 +4028,7 @@ class cordvtn_exchange(CordLogger):
 		$ curl -X POST -H "Content-Type: application/json" -u onos:rocks -d @data.json http://$OC1:8181/onos/cordvtn/serviceNetworks
 	    4) From CORD-Test container, use python-neutron client and create two networks with name - NetA and NetBwith an IP as private network.
 	       (neutron net-create net-A-private, neutron subnet-create net-A-private 10.0.0.0/24).
-	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.1.0.0/24).
+	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.106.0.0/24).
 	    5) Now boot 2 images in the same created network using nova boot image command (example given below :-
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-A-vm-01
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-B-vm-01
@@ -4054,7 +4054,7 @@ class cordvtn_exchange(CordLogger):
 		$ curl -X POST -H "Content-Type: application/json" -u onos:rocks -d @data.json http://$OC1:8181/onos/cordvtn/serviceNetworks
 	    4) From CORD-Test container, use python-neutron client and create two networks with name - NetA and NetBwith an IP as private network.
 	       (neutron net-create net-A-private, neutron subnet-create net-A-private 10.0.0.0/24).
-	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.1.0.0/24).
+	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.106.0.0/24).
 	    5) Now boot 2 images in the same created network using nova boot image command (example given below :-
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-A-vm-01
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-B-vm-01
@@ -4079,7 +4079,7 @@ class cordvtn_exchange(CordLogger):
 	    3) Validate that XOS is up and running.
 	    4) From CORD-Test container, use python-neutron client and create two networks with name - NetA and NetBwith an IP as private network.
 	       (neutron net-create net-A-private, neutron subnet-create net-A-private 10.0.0.0/24).
-	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.1.0.0/24).
+	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.106.0.0/24).
 	    5) Now boot 2 images in the same created network using nova boot image command (example given below :-
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-A-vm-01
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-B-vm-01
@@ -4101,7 +4101,7 @@ class cordvtn_exchange(CordLogger):
 	    3) Validate that XOS is up and running.
 	    4) From CORD-Test container, use python-neutron client and create two networks with name - NetA and NetBwith an IP as private network.
 	       (neutron net-create net-A-private, neutron subnet-create net-A-private 10.0.0.0/24).
-	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.1.0.0/24).
+	       (neutron net-create net-B-private, neutron subnet-create net-B-private 10.106.0.0/24).
 	    5) Now boot 2 images in the same created network using nova boot image command (example given below :-
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-A-vm-01
 		$ nova boot --image 3e2d7760-774a-4a16-be07-aaccafa779b6 --flavor 1 --nic net-id=8bc19377-f493-4cad-af23-45fb299da9de net-B-vm-01

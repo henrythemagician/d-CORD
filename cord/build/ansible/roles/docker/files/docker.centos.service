@@ -7,7 +7,7 @@ Requires=docker.socket
 [Service]
 EnvironmentFile=-/etc/sysconfig/docker
 Type=notify
-ExecStart=/usr/bin/docker daemon --insecure-registry 10.100.198.200:5000 -H fd://
+ExecStart=/usr/bin/docker daemon --insecure-registry 10.106.0.2:5000 -H fd://
 MountFlags=slave
 LimitNOFILE=1048576
 LimitNPROC=1048576

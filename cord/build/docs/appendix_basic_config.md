@@ -3,7 +3,7 @@
 The following provides instructions on how to configure the fabric on an installed full POD with two leaf and two spine switches.
 The fabric needs to be configured to forward traffic between the different components of the POD. More info about how to configure the fabric can be found [here](https://wiki.opencord.org/pages/viewpage.action?pageId=3014916).
 
-Each leaf switch on the fabric corresponds to a separate IP subnet.  The recommended configuration is a POD with two leaves; the leaf1 subnet is `10.6.1.0/24` and the leaf2 subnet is `10.6.2.0/24`.
+Each leaf switch on the fabric corresponds to a separate IP subnet.  The recommended configuration is a POD with two leaves; the leaf1 subnet is `10.106.15.0/24` and the leaf2 subnet is `10.6.2.0/24`.
 
 ##Configure the Fabric:  Overview
 
@@ -95,13 +95,13 @@ sudo ip route add <remote-leaf-subnet> via <local-spine-ip>
 In this configuration, on the nodes attached to leaf1 (including the head node), run:
 
 ```
-sudo ip route add 10.6.2.0/24 via 10.6.1.254
+sudo ip route add 10.6.2.0/24 via 10.106.15.254
 ```
 
 Likewise, on the compute nodes attached to leaf2, run:
 
 ```
-sudo ip route add 10.6.1.0/24 via 10.6.2.254
+sudo ip route add 10.106.15.0/24 via 10.6.2.254
 ```
 
 >NOTE: it’s strongly suggested to add it as a permanent route to the nodes, so the route will still be there after a reboot
@@ -115,16 +115,16 @@ In a production POD, a vRouter is responsible for providing connectivity between
 The default POD configuration uses the `10.7.1.0/24` subnet for vSG traffic to the Internet, and `10.8.1.0/24` for other Internet traffic.  Add routes on the head node to forward traffic to these subnets into the fabric:
 
 ```
-sudo route add -net 10.7.1.0/24 gw 10.6.1.254
-sudo route add -net 10.8.1.0/24 gw 10.6.1.254
+sudo route add -net 10.7.1.0/24 gw 10.106.15.254
+sudo route add -net 10.8.1.0/24 gw 10.106.15.254
 ```
 
 ###Add Default Route to Head Node from Fabric
 
-ONOS must be configured to forward all outgoing Internet traffic to the head node's fabric interface, which by default has IP address `10.6.1.1`:
+ONOS must be configured to forward all outgoing Internet traffic to the head node's fabric interface, which by default has IP address `10.106.15.1`:
 
 ```
-ssh -p 8101 onos@onos-fabric route-add 0.0.0.0/0 10.6.1.1
+ssh -p 8101 onos@onos-fabric route-add 0.0.0.0/0 10.106.15.1
 ```
 
 >NOTE: When prompted, use password "rocks".
@@ -134,9 +134,9 @@ ssh -p 8101 onos@onos-fabric route-add 0.0.0.0/0 10.6.1.1
 To make sure that ONOS is aware of the compute nodes, the following commands will send a ping over the fabric interface on the head node and each compute node.
 
 ```
-ping -c 1 10.6.1.254
+ping -c 1 10.106.15.254
 for h in $(cord prov list | grep "^node" | awk '{print $2}'); do
-ssh -i ~/.ssh/cord_rsa -qftn ubuntu@$h ping -c 1 10.6.1.254;
+ssh -i ~/.ssh/cord_rsa -qftn ubuntu@$h ping -c 1 10.106.15.254;
 done
 ```
 
@@ -149,8 +149,8 @@ ssh -p 8101 onos@onos-fabric hosts
 Warning: Permanently added '[onos-fabric]:8101,[10.6.0.1]:8101' (RSA) to the list of known hosts.
 Password authentication
 Password:
-id=00:16:3E:DF:89:0E/None, mac=00:16:3E:DF:89:0E, location=of:0000cc37ab7cba58/3, vlan=None, ip(s)=[10.6.1.1], configured=false
-id=3C:FD:FE:9E:94:28/None, mac=3C:FD:FE:9E:94:28, location=of:0000cc37ab7cba58/4, vlan=None, ip(s)=[10.6.1.2], configured=false
+id=00:16:3E:DF:89:0E/None, mac=00:16:3E:DF:89:0E, location=of:0000cc37ab7cba58/3, vlan=None, ip(s)=[10.106.15.1], configured=false
+id=3C:FD:FE:9E:94:28/None, mac=3C:FD:FE:9E:94:28, location=of:0000cc37ab7cba58/4, vlan=None, ip(s)=[10.106.15.2], configured=false
 ```
 
 >NOTE: When prompt, use password rocks
@@ -230,7 +230,7 @@ Password:
 
 ## Verify Connectivity over the Fabric
 
-Once the new ONOS configuration is active, the fabric interface on each node should be reachable from the other nodes.  From each compute node, ping the IP address of head node's fabric interface (e.g., `10.6.1.1`).
+Once the new ONOS configuration is active, the fabric interface on each node should be reachable from the other nodes.  From each compute node, ping the IP address of head node's fabric interface (e.g., `10.106.15.1`).
 
 Sometimes ping fails for various reasons. Reconnecting switches to ONOS often solves the problem:
 

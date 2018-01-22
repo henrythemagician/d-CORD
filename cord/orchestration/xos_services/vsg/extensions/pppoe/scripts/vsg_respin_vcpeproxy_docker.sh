@@ -40,7 +40,7 @@ function setup_cp_path_in_docker (){
  sleep 1
  echo "$VCPEPROXY_CP_IFACE interface in container is UP"
  docker exec $VCPEPROXY_NAME ifconfig $VCPEPROXY_CP_IFACE
- docker exec $VCPEPROXY_NAME route add -net 10.6.1.0 netmask 255.255.255.0 gw 10.6.1.129 dev eth0
+ docker exec $VCPEPROXY_NAME route add -net 10.106.15.0 netmask 255.255.255.0 gw 10.106.15.129 dev eth0
 }
 
 #

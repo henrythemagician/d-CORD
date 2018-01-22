@@ -50,9 +50,9 @@ common:
   #                    Internet
   # management_network - the network and mask bits to used for hosts on the management
   #                      network
-  fabric_ip: '10.6.1.1/24'
-  #fabric_range_low: '10.6.1.2'
-  #fabric_range_high: '10.6.1.100'
+  fabric_ip: '10.106.15.1/24'
+  #fabric_range_low: '10.106.15.2'
+  #fabric_range_high: '10.106.15.100'
   management_ip: '10.6.0.1/24'
   #management_range_low: '10.6.0.2'
   #management_range_high: '10.6.0.127'
@@ -98,14 +98,14 @@ common:
   #  - 'management_ignore_names=<name1>,<name2>,...'
   #  - 'management_ignore_module_types=<mtype1>,<mtype2>,...'
   #  - 'management_ignore_bus_types=<btype1>,<btype2>,...'
-  #  - ubuntu_apt_repo="deb [arch=amd64] http://10.1.0.1:8889/mirror/archive.ubuntu.com/ubuntu trusty main universe"
-  #  - ubuntu_updates_apt_repo="deb [arch=amd64] http://10.1.0.1:8889/mirror/archive.ubuntu.com/ubuntu trusty-updates main universe"
-  #  - docker_apt_repo="deb [arch=amd64] http://10.1.0.1:8889/mirror/apt.dockerproject.org/repo ubuntu-trusty main"
-  #  - java_apt_repo="deb [arch=amd64] http://10.1.0.1:8889/mirror/ppa.launchpad.net/webupd8team/java/ubuntu trusty main"
-  #  - ansible_apt_repo="deb [arch=amd64] http://10.1.0.1:8889/mirror/ppa.launchpad.net/ansible/ansible/ubuntu trusty main"
-  #  - maas_apt_repo="deb [arch=amd64] http://10.1.0.1:8889/mirror/ppa.launchpad.net/maas/stable/ubuntu trusty main"
-  #  - dell_apt_repo="deb [arch=amd64] http://10.1.0.1:8889/mirror/linux.dell.com/repo/community trusty openmanage"
-  #  - juju_apt_repo="deb [arch=amd64] http://10.1.0.1:8889/mirror/ppa.launchpad.net/juju/stable/ubuntu trusty main"
+  #  - ubuntu_apt_repo="deb [arch=amd64] http://10.106.0.1:8889/mirror/archive.ubuntu.com/ubuntu trusty main universe"
+  #  - ubuntu_updates_apt_repo="deb [arch=amd64] http://10.106.0.1:8889/mirror/archive.ubuntu.com/ubuntu trusty-updates main universe"
+  #  - docker_apt_repo="deb [arch=amd64] http://10.106.0.1:8889/mirror/apt.dockerproject.org/repo ubuntu-trusty main"
+  #  - java_apt_repo="deb [arch=amd64] http://10.106.0.1:8889/mirror/ppa.launchpad.net/webupd8team/java/ubuntu trusty main"
+  #  - ansible_apt_repo="deb [arch=amd64] http://10.106.0.1:8889/mirror/ppa.launchpad.net/ansible/ansible/ubuntu trusty main"
+  #  - maas_apt_repo="deb [arch=amd64] http://10.106.0.1:8889/mirror/ppa.launchpad.net/maas/stable/ubuntu trusty main"
+  #  - dell_apt_repo="deb [arch=amd64] http://10.106.0.1:8889/mirror/linux.dell.com/repo/community trusty openmanage"
+  #  - juju_apt_repo="deb [arch=amd64] http://10.106.0.1:8889/mirror/ppa.launchpad.net/juju/stable/ubuntu trusty main"
 
 # If passwords are not set, random passwords will be generated
 passwords:

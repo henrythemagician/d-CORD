@@ -24,7 +24,7 @@ var execAsync=Promise.promisify(require('child_process').exec);
 var fs=require('fs');
 var os=require('os');
 var ifaces = os.networkInterfaces();
-var oriGw = '10.6.1.129';
+var oriGw = '10.106.15.129';
 var dnsFwdr = '8.8.8.8';
 
 
