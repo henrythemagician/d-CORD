@@ -126,9 +126,10 @@ inventory_groups:
 
   build:
     corddev:
+      ansible_host: 10.109.0.232
 
   head:
-    localhost:
+    head1:
 # If you do not have DNS set up that will resolve the headnode address, you can
 # specify the IP address here.
 #

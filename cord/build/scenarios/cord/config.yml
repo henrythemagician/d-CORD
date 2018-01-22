@@ -27,8 +27,8 @@ build_cord_dir: "/opt/cord"
 build_cord_profile_dir: "/opt/cord_profile"
 host_cord_profile_dir: "~/cord_profile"
 
-buildnode: corddev
-headnode: localhost
+#buildnode: corddev
+#headnode: localhost
 
 # docker config
 deploy_docker_registry: "docker-registry:5000"
@@ -165,7 +165,7 @@ inventory_groups:
       ansible_host: 10.109.0.232
 
   head:
-    localhost:
+    head1:
       ansible_connection: local
 
   compute:
