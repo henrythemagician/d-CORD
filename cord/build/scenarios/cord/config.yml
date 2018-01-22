@@ -27,8 +27,8 @@ build_cord_dir: "/opt/cord"
 build_cord_profile_dir: "/opt/cord_profile"
 host_cord_profile_dir: "~/cord_profile"
 
-#buildnode: corddev
-#headnode: localhost
+buildnode: corddev
+headnode: head1
 
 # docker config
 deploy_docker_registry: "docker-registry:5000"
