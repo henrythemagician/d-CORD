@@ -76,12 +76,12 @@ setup_automation_prereqs:
   - deploy-openstack
 
 # Vagrant VM configuration
-#vagrant_vms:
-#  - corddev
+vagrant_vms:
+  - corddev
 #  - head1
 
-#dev_vm_mem: 2048
-#dev_vm_cpu: 1
+dev_vm_mem: 2048
+dev_vm_cpu: 1
 
 #head_vm_mem: 16384
 #head_vm_cpu: 8
@@ -157,11 +157,11 @@ inventory_groups:
       ansible_connection: local
 
   build:
-    localhost:
+    corddev:
 
   head:
-    head1:
-      ansible_host: 10.109.0.231
+    localhost:
+      ansible_connection: local
 
   compute:
     compute1:
