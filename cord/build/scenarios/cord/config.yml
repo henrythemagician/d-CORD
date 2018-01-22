@@ -157,7 +157,7 @@ physical_node_list:
 inventory_groups:
 
   config:
-    localhost:
+    head1:
       ansible_connection: local
 
   build:

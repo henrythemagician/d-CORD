@@ -121,7 +121,7 @@ skipTags:
 inventory_groups:
 
   config:
-    localhost:
+    head1:
       ansible_connection: local
 
   build:
