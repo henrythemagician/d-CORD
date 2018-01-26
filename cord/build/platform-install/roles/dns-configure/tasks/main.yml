@@ -1,0 +1,50 @@
+
+# Copyright 2017-present Open Networking Foundation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+---
+# roles/dns-configure/tasks.yml
+
+- name: Make sure resolvconf is doing DNS resolver mangling
+  apt:
+    name: resolvconf
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Create resolvconf configuration files
+  template:
+    src: "{{ item }}.j2"
+    dest: "/etc/resolvconf/resolv.conf.d/{{ item }}"
+    mode: 0644
+    owner: root
+    group: root
+  with_items:
+    - base
+    - head
+  register: resolvconf_configured
+
+- name: Tell resolvconf to refresh /etc/resolv.conf file if changed
+  become: yes
+  command: resolvconf -u
+  when: resolvconf_configured.changed
+  tags:
+   - skip_ansible_lint # needs to run before the DNS check which happens next, so can't be a handler
+
+- name: Check that VM's can be found in DNS
+  shell: "dig +short {{ item.name }}.{{ site_suffix }} | grep {{ item.ipv4_last_octet }}"
+  with_items: "{{ head_lxd_list }}"
+  tags:
+   - skip_ansible_lint # purely a way to pass/fail config done so far. Ansible needs a "dns_query" module
+

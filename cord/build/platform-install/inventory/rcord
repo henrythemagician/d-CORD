@@ -1,0 +1,16 @@
+; rcord configuration
+
+[all:vars]
+cord_profile=rcord
+
+[config]
+localhost ansible_connection=local
+
+[head]
+localhost ansible_connection=local
+
+[build]
+localhost ansible_connection=local
+
+[compute]
+

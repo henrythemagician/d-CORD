@@ -1,0 +1,54 @@
+
+# Copyright 2017-present Open Networking Foundation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+---
+# prep-computenode-playbook.yml
+# Prepares a compute node on a CORD pod
+
+- name: Include vars
+  hosts: compute
+  tasks:
+    - name: Include variables
+      include_vars: "{{ item }}"
+      with_items:
+        - "profile_manifests/{{ cord_profile }}.yml"
+        - profile_manifests/local_vars.yml
+
+- name: Common prep, install SSL certificates
+  hosts: compute
+  become: yes
+  roles:
+    - common-prep
+    - { role: pki-install, when: not use_maas }
+
+- name: Configure management network
+  hosts: compute
+  become: yes
+  roles:
+    - { role: interface-config, when: not use_maas }
+
+- name: Use headnode DNS server
+  hosts: compute
+  become: yes
+  roles:
+    - { role: dns-configure, when: not use_maas }
+
+- name: Prep compute node
+  hosts: compute
+  become: yes
+  roles:
+    - compute-prep
+

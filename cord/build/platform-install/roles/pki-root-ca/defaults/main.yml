@@ -1,0 +1,32 @@
+
+# Copyright 2017-present Open Networking Foundation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+---
+# pki-root-ca/defaults/main.yml
+
+pki_dir: "{{ playbook_dir }}/pki"
+credentials_dir: "{{ playbook_dir }}/credentials"
+
+# ca cert parameters
+ca_digest: "sha256"
+ca_size: 4096
+ca_root_days: 3650
+
+# passphrases for the key
+ca_root_phrase: "{{ lookup('password', credentials_dir ~ '/ca_root_phrase length=64') }}"
+
+# noninteractive csr subject
+ca_root_subj: "/C=US/ST=California/L=Menlo Park/O=ON.Lab/OU=Test Deployment/CN=CORD Test Deployment Root CA"

@@ -1,0 +1,38 @@
+
+# Copyright 2017-present Open Networking Foundation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+---
+# file: common-prep/handlers/main.yml
+
+# from https://support.ansible.com/hc/en-us/articles/201958037-Reboot-a-server-and-wait-for-it-to-come-back
+- name: restart host
+  shell: >
+    sleep 2 && shutdown -r now "Ansible updates triggered"
+  async: 1
+  poll: 0
+  ignore_errors: true
+
+# wait 1m, then try to contact machine for 10m
+- name: wait for host
+  become: false
+  local_action:
+     wait_for
+     host={{ inventory_hostname }}
+     port=22
+     search_regex=OpenSSH
+     delay=60
+     timeout=600
+

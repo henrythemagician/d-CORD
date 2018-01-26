@@ -1,0 +1,65 @@
+
+{#
+Copyright 2017-present Open Networking Foundation
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+#}
+
+
+tosca_definitions_version: tosca_simple_yaml_1_0
+
+imports:
+   - custom_types/xos.yaml
+
+description: Adds OpenStack compute nodes
+
+topology_template:
+  node_templates:
+
+# Site/Deployment, fully defined in deployment.yaml
+    {{ site_name }}:
+      type: tosca.nodes.Site
+      properties:
+        no-delete: true
+        no-create: true
+        no-update: true
+
+    {{ deployment_type }}:
+      type: tosca.nodes.Deployment
+      properties:
+        no-delete: true
+        no-create: true
+        no-update: true
+
+# OpenStack compute nodes
+{% for node in groups['compute'] %}
+{% for ext_if in compute_external_interfaces %}
+{% set ansible_ext_if = 'ansible_' ~ ext_if | regex_replace('\W', '_') %}
+{% if hostvars[node][ansible_ext_if] is defined and 'ipv4' in hostvars[node][ansible_ext_if] %}
+{% set node_interface = hostvars[node][ansible_ext_if] %}
+
+# Compute node: {{ node }}, with interface {{ ansible_ext_if }}
+    {{ hostvars[node]['ansible_hostname'] }}:
+      type: tosca.nodes.Node
+      requirements:
+        - site:
+            node: {{ site_name }}
+            relationship: tosca.relationships.MemberOfSite
+        - deployment:
+            node: {{ deployment_type }}
+            relationship: tosca.relationships.MemberOfDeployment
+
+{% endif %}
+{% endfor %}
+{% endfor %}
+

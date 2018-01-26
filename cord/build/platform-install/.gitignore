@@ -1,0 +1,52 @@
+credentials/*
+cord_profile/
+*.retry
+*.swp
+*.log
+
+# Java
+*.class
+*.jar
+*.war
+*.oar
+
+# Python
+*.pyc
+
+# Eclipse
+.project
+.classpath
+.settings
+
+# Idea
+.idea
+*.iml
+*.iws
+*.ipr
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Vagrant
+.vagrant
+
+# Docker registry
+/registry
+
+# Build
+build
+
+# Gradle
+.gradle
+
+# Ansible
+ansible/*.retry
+*.retry
+
+# Backup files
+*.bak
+
+# PKI dir
+pki/
+

@@ -1,0 +1,86 @@
+
+# Copyright 2017-present Open Networking Foundation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+---
+# roles/juju-compute-setup/main/tasks.yml
+
+# Code for this is in library/juju_facts.py
+- name: Obtain Juju Facts for creating machines
+  juju_facts:
+
+# For setwise operations on desired vs Juju state:
+# list of active juju_machines names: juju_machines.keys()
+# list of active juju_services names: juju_services.keys()
+
+- name: Add machines to Juju
+  when: "{{ groups['compute'] | difference( juju_machines.keys() ) | length }}"
+  command: "juju add-machine ssh:{{ item }}"
+  with_items: "{{ groups['compute'] | difference( juju_machines.keys() ) }}"
+
+# run this again, so machines will be in the juju_machines list
+- name: Obtain Juju Facts after machine creation
+  juju_facts:
+
+- name: Deploy nova-compute service if needed
+  when: '"nova-compute" not in juju_services.keys()'
+  command: "juju deploy {{ charm_versions[item] | default(item) }} --to {{ juju_machines[groups['compute'][0]]['machine_id'] }} --config={{ juju_config_path }}"
+  with_items:
+    - "nova-compute"
+
+- name: Create relations between nova-compute and other services if needed
+  command: "juju add-relation '{{ item.0.name }}' '{{ item.1 }}'"
+  register: juju_relation
+  failed_when: "juju_relation|failed and 'relation already exists' not in juju_relation.stderr"
+  with_subelements:
+    - "{{ compute_relations }}"
+    - relations
+  tags:
+   - skip_ansible_lint # benign to do this more than once, hard to check for
+
+# run another time
+- name: Obtain Juju Facts after deploying nova-compute
+  when: '"nova-compute" not in juju_services.keys()'
+  juju_facts:
+
+- name: Add more nova-compute units
+  command: "juju add-unit nova-compute --to {{ juju_machines[item]['machine_id'] }}"
+  with_items: "{{ groups['compute'] | difference( juju_compute_nodes.keys() ) }}"
+  tags:
+   - skip_ansible_lint # benign to do this more than once, hard to check for
+
+- name: Pause to let Juju settle
+  pause:
+    prompt="Waiting for Juju..."
+    seconds=20
+
+# 100*30s = 3000s = 50m max wait
+- name: Wait for nova-compute nodes to come online
+  juju_facts:
+  until: item in juju_compute_nodes.keys() and juju_compute_nodes[item]['workload-status']['message'] == "Unit is ready"
+  retries: 100
+  delay: 30
+  with_items: "{{ groups['compute'] }}"
+
+- name: Verify that the nodes appear in nova
+  action: shell bash -c "source /opt/cord_profile/admin-openrc.sh; nova hypervisor-list | grep '{{ item }}'"
+  register: result
+  until: result | success
+  retries: 20
+  delay: 15
+  with_items: "{{ groups['compute'] }}"
+  tags:
+   - skip_ansible_lint # this really should be the os_server module, but ansible doesn't know about juju created openstack
+

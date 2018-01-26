@@ -1,0 +1,98 @@
+---
+{#
+Copyright 2017-present Open Networking Foundation
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+#}
+
+# juju configuration file for CORD deployments
+
+ceilometer:
+  openstack-origin: "cloud:trusty-kilo"
+
+ceilometer-agent: {}
+
+glance:
+  openstack-origin: "cloud:trusty-kilo"
+  ha-mcastport: 5402
+  worker-multiplier: 1
+
+keystone:
+  openstack-origin: "cloud:trusty-kilo"
+  admin-password: "{{ keystone_admin_password }}"
+  os-public-hostname: "keystone.{{ site_suffix }}"
+  ha-mcastport: 5403
+  use-https: "yes"
+  ssl_key: {{ lookup('file', '{{ pki_dir }}/{{ site_name }}_im_ca/private/keystone.{{ site_suffix }}_key.pem') | b64encode }}
+  ssl_cert: {{ lookup('file', '{{ pki_dir }}/{{ site_name }}_im_ca/certs/keystone.{{ site_suffix }}_cert.pem') | b64encode }}
+  ssl_ca: {{ lookup('file', '{{ pki_dir }}//{{ site_name }}_im_ca/certs/im_cert_chain.pem') | b64encode }}
+  worker-multiplier: 1.0
+
+mongodb: {}
+
+nagios: {}
+
+neutron-api:
+  openstack-origin: "cloud:trusty-kilo"
+  neutron-plugin: onosvtn
+  onos-vtn-ip: onos-cord
+  onos-vtn-port: 8182
+  neutron-security-groups: "True"
+  overlay-network-type: vxlan
+  worker-multiplier: 1
+  {% if use_dpdk -%}
+  onos-vtn-branch: cord-2.0-dpdk-kilo
+  {% endif %}
+
+neutron-openvswitch: {}
+
+nova-cloud-controller:
+  openstack-origin: "cloud:trusty-kilo"
+  config-flags: "force_config_drive=always"
+  console-access-protocol: novnc
+  network-manager: Neutron
+  worker-multiplier: 1
+  {% if use_dpdk -%}
+  scheduler-default-filters: "RetryFilter,AvailabilityZoneFilter,CoreFilter,RamFilter,ComputeFilter,ComputeCapabilitiesFilter,ImagePropertiesFilter,ServerGroupAntiAffinityFilter,ServerGroupAffinityFilter,NUMATopologyFilter"
+  {% endif %}
+
+nova-compute:
+  openstack-origin: "cloud:trusty-kilo"
+  virt-type: kvm
+  disable-neutron-security-groups: "True"
+  {% if use_dpdk -%}
+  config-flags: "firewall_driver=nova.virt.firewall.NoopFirewallDriver,vcpu_pin_set={{ vcpu_pin_set }}"
+  enable-dpdk: True
+  hugepages: "{{ hugepages }}"
+  dpdk-socket-memory: "{{ dpdk_socket_memory }}"
+  dpdk-lcore-mask: "{{ dpdk_lcore_mask }}"
+  pmd-cpu-mask: "{{ pmd_cpu_mask }}"
+  fabric-interfaces: "{{ fabric_interfaces }}"
+  {% else -%}
+  config-flags: "firewall_driver=nova.virt.firewall.NoopFirewallDriver"
+  {% endif %}
+
+
+nrpe: {}
+
+ntp: {}
+
+openstack-dashboard:
+  openstack-origin: "cloud:trusty-kilo"
+
+percona-cluster:
+  max-connections: 5000
+  innodb-buffer-pool-size: "20%"
+
+rabbitmq-server:
+  ssl: "on"

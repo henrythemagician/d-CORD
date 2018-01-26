@@ -1,0 +1,61 @@
+
+{#
+Copyright 2017-present Open Networking Foundation
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+#}
+
+
+;## NSD authoritative only DNS
+;## FORWARD Zone
+;# created by ansible
+
+$ORIGIN {{ item.name }}. ; default zone domain
+$TTL {{ item.ttl | default(dns_ttl) }} ; default time to live
+
+@ IN SOA {{ item.soa }}.{{ item.name }}. admin.{{ item.name }}. (
+         {{ item.serial | default(ansible_date_time.epoch) }}   ; Serial, must be incremented every time you change this file
+         3600        ; Refresh [1hr]
+         600         ; Retry [10m]
+         3600        ; Expire [1hr]
+         60          ; Min TTL [1m]
+         )
+
+; Name Servers
+{% for ns in item.ns %}
+        IN      NS      {{ ns.name ~ '.' ~ item.name }}.
+{% endfor %}
+
+;A and CNAME records
+{% if name_on_public_interface is defined %}
+{{ name_on_public_interface }}    IN    A    {{ ansible_default_ipv4.address }}
+{% endif %}
+{% if item.aliases is defined %}
+{% for alias in item.aliases %}
+{{ alias.name }}    IN    CNAME    {{ alias.dest }}
+{% endfor %}
+{% endif %}
+
+{% for nodelist in item.nodelists %}
+; Created from nodelist: {{ nodelist }}
+{% set nodes = vars[nodelist] %}
+{% for node in nodes %}
+{{ node.name }}    IN    A    {{ item.ipv4_first_octets ~ "." ~ node.ipv4_last_octet }}
+{% if node.aliases is defined %}
+{% for alias in node.aliases %}
+{{ alias }}    IN    CNAME    {{ node.name }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+
