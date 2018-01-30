@@ -17,15 +17,15 @@
 ---
 # file: ansible-install/tasks/main.yml
 
-#- name:  Install prerequisites for using PPA repos
-#  apt:
-#    name: "{{ item }}"
-#    update_cache: yes
-#    cache_valid_time: 3600
-#  with_items:
-#    - python-pycurl
-#    - software-properties-common
-#    - python-netaddr
+- name:  Install prerequisites for using PPA repos
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - python-pycurl
+    - software-properties-common
+    - python-netaddr
 
 - name: Add Ansible PPA
   apt_repository:
@@ -37,11 +37,11 @@
   retries: 3
   delay: 10
 
-#- name: Make sure Ansible is newest version
-#  apt:
-#    name: "ansible"
-#    state: latest
-#    update_cache: yes
-#    cache_valid_time: 3600
-#  tags:
-#    - skip_ansible_lint # ansible-lint complains about latest, need this as distro provided 1.5.x version may be used if already installed.
+- name: Make sure Ansible is newest version
+  apt:
+    name: "ansible"
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+  tags:
+    - skip_ansible_lint # ansible-lint complains about latest, need this as distro provided 1.5.x version may be used if already installed.

@@ -27,7 +27,7 @@
   with_items:
     - apt-transport-https
     - ca-certificates
-  #  - python-pip
+    - python-pip
 
 - name: Trust docker apt key
   become: yes
@@ -78,3 +78,4 @@
 # FIXME (zdw, 2017-09-19): busted in 2.4, per https://groups.google.com/forum/#!msg/ansible-project/vk7i2DszfZg/myI1uCroAQAJ
 #- name: Reset ssh connection so user gains docker group membership
 #  meta: reset_connection
+

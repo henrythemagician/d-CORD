@@ -1,6 +1,6 @@
 [jenkins-node]
-10.106.0.2
-10.106.0.1
+10.100.198.200
+10.100.198.201
 
 [prod]
-10.106.0.1 consul_extra="-server -bootstrap -ui"
+10.100.198.201 consul_extra="-server -bootstrap -ui"

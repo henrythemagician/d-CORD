@@ -16,7 +16,7 @@
 # prereqs-common/defaults/main.yml
 
 min_memtotal_mb: 48000
-min_processor_vcpus: 8
+min_processor_vcpus: 12
 
 kvm_check: true
 
@@ -24,3 +24,4 @@ dns_check_domain: corddnscheck.opencord.org
 
 # CNAME record for corddnscheck.opencord.org
 dns_check_record: "wiki.opencord.org."
+

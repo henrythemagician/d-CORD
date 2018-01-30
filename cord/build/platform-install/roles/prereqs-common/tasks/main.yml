@@ -44,18 +44,18 @@
   #  assert:
   #    that: "{{ lookup('dig', dns_check_domain ) == dns_check_ipv4 }}"
 
-#- name: DNS Global Root Connectivity Check
-#  shell: "dig @{{ item }} +trace +short {{ dns_check_domain }} | grep '{{ dns_check_record }}'"
-#  with_items:
+- name: DNS Global Root Connectivity Check
+  shell: "dig @{{ item }} +trace +short {{ dns_check_domain }} | grep '{{ dns_check_record }}'"
+  with_items:
     - 192.5.5.241
     - 198.41.0.4
     - 199.7.91.13
-#  register: dns_global_check_result
-#  until: dns_global_check_result.rc == 0
-#  retries: 3
-#  delay: 1
-#  tags:
-#   - skip_ansible_lint # too complex for lookup('dig', ...) to handle
+  register: dns_global_check_result
+  until: dns_global_check_result.rc == 0
+  retries: 3
+  delay: 1
+  tags:
+   - skip_ansible_lint # too complex for lookup('dig', ...) to handle
 
 - name: HTTP Download Check
   get_url:
@@ -72,3 +72,4 @@
     dest: /tmp/https_dl_check
   retries: 3
   delay: 1
+

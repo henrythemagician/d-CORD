@@ -199,7 +199,7 @@ function elk_up() {
   cd $CORDDIR
   sudo chmod +x build/elk-logger/logstash_tail
 
-  build/elk-logger/logstash_tail --file install.out --hostport 10.106.0.1:5617 &
+  build/elk-logger/logstash_tail --file install.out --hostport 10.100.198.201:5617 &
 }
 
 function vagrant_vms_up() {
@@ -224,7 +224,7 @@ function install_head_node() {
   # SSH config saved earlier allows us to connect to VM without running 'vagrant'
   ssh corddev "cd $VMDIR; ./gradlew -PdeployConfig=$VMDIR/$CONFIG fetch"
   ssh corddev "cd $VMDIR; ./gradlew -PdeployConfig=$VMDIR/$CONFIG buildImages"
-  ssh corddev "cd $VMDIR; ping -c 3 prod; ./gradlew -PdeployConfig=$VMDIR/$CONFIG -PtargetReg=10.106.0.1:5000 publish"
+  ssh corddev "cd $VMDIR; ping -c 3 prod; ./gradlew -PdeployConfig=$VMDIR/$CONFIG -PtargetReg=10.100.198.201:5000 publish"
   ssh corddev "cd $VMDIR; ./gradlew -PdeployConfig=$VMDIR/$CONFIG deploy"
 }
 

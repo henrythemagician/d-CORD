@@ -41,7 +41,7 @@ to deploy Quagga, you should see this bonded interface appear in the output.
 ```
 ubuntu@fumbling-reason:~$ ifconfig fabric
 fabric    Link encap:Ethernet  HWaddr 00:02:c9:1e:b4:e0
-          inet addr:10.106.15.2  Bcast:10.106.15.255  Mask:255.255.255.0
+          inet addr:10.6.1.2  Bcast:10.6.1.255  Mask:255.255.255.0
           inet6 addr: fe80::202:c9ff:fe1e:b4e0/64 Scope:Link
           UP BROADCAST RUNNING MASTER MULTICAST  MTU:1500  Metric:1
           RX packets:1048256 errors:0 dropped:42 overruns:0 frame:0

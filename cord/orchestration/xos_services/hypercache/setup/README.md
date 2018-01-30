@@ -27,7 +27,7 @@
        * this will SSH into the CMI and run setup, then modify some settings.
        * it may take a long time, 10-20 minutes or more
 7. log into CMI (ssh-cmi.sh) and setup socat to attach the CMI to eth1
-       * socat TCP-LISTEN:443,bind=172.27.0.9,reuseaddr,fork TCP4:10.106.15.196:443
+       * socat TCP-LISTEN:443,bind=172.27.0.9,reuseaddr,fork TCP4:10.6.1.196:443
 8. setup port forwarding from prod VM to CMI:
        * ssh -L 0.0.0.0:3456:172.27.0.9:443 ubuntu@offbeat-pin
        * (note IP address of CMI Instance and use in place of 172.27.0.9)
@@ -98,6 +98,6 @@ test
 
 ## notes
 
-socat TCP-LISTEN:443,bind=172.27.0.9,reuseaddr,fork TCP4:10.106.15.196:443 
+socat TCP-LISTEN:443,bind=172.27.0.9,reuseaddr,fork TCP4:10.6.1.196:443 
 
 ssh -L 0.0.0.0:3456:172.27.0.9:443 ubuntu@offbeat-pin

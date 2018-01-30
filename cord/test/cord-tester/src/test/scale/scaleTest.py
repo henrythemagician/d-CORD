@@ -64,7 +64,7 @@ log.setLevel('INFO')
 
 
 class scale_exchange(CordLogger):
-    HOST = "10.106.0.1"
+    HOST = "10.1.0.1"
     USER = "vagrant"
     PASS = "vagrant"
     head_node = os.getenv('HEAD_NODE', 'prod')
@@ -82,7 +82,7 @@ class scale_exchange(CordLogger):
     restore_methods = []
     TIMEOUT=120
     NUM_SUBSCRIBERS = 16
-    wan_intf_ip = '10.106.15.129'
+    wan_intf_ip = '10.6.1.129'
     V_INF1 = 'veth0'
     V_INF2 = 'veth1'
     MGROUP1 = '239.1.2.3'

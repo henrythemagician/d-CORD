@@ -21,10 +21,5 @@ apt-get install -y software-properties-common ca-certificates
 apt-add-repository ppa:ansible/ansible
 apt-get update
 apt-get install -y ansible
-
-#apt-get remove python-setuptools
-#wget https://bootstrap.pypa.io/get-pip.py
-#python get-pip.py
-#pip install -U pip setuptools
-#pip install ansible
 mkdir -p /etc/ansible
+

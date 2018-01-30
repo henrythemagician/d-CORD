@@ -75,7 +75,7 @@ ANSIBLE_PB_MAAS  ?= ansible-playbook $(ANSIBLE_ARGS) -i /etc/maas/ansible/pod-in
 IMAGEBUILDER     ?= python $(BUILD)/scripts/imagebuilder.py
 LOGCMD           ?= 2>&1 | tee -a $(LOGS)/$(TS)_$(@F)
 SSH_HEAD         ?= ssh $(HEADNODE)
-SSH_BUILD        ?= ssh vagrant@$(BUILDNODE)
+SSH_BUILD        ?= ssh $(BUILDNODE)
 
 # default target, prints help
 .DEFAULT: help
@@ -366,3 +366,4 @@ $(M)/local-start-xos: | $(M)/local-core-image
 $(M)/local-onboard-profile: | $(M)/local-start-xos
 	$(ANSIBLE_PB) $(PI)/onboard-profile-playbook.yml $(LOGCMD)
 	touch $@
+

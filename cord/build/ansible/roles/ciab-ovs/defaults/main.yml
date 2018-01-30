@@ -30,7 +30,7 @@ ovs_patch_ports:
 
 enable_fabric: False
 
-ovs_controller_ip: 10.106.0.1
+ovs_controller_ip: 10.100.198.201
 ovs_controller_port: 6653
 
 ovs_packages:

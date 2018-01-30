@@ -15,8 +15,8 @@
 
 
 hosts: [
-  { host_ip: "10.106.0.2", host_name: "corddev"},
-  { host_ip: "10.106.0.1", host_name: "head1"},
+  { host_ip: "10.100.198.200", host_name: "corddev"},
+  { host_ip: "10.100.198.201", host_name: "prod"},
 ]
 
 use_latest_for:

@@ -60,7 +60,7 @@ onos> netcfg
 ```
 onos> cordvtn-nodes
   Hostname                      Management IP       Data IP             Data Iface     Br-int                  State
-  sturdy-baseball               10.106.0.14/24        10.106.15.2/24         fabric         of:0000525400d7cf3c     COMPLETE
+  sturdy-baseball               10.1.0.14/24        10.6.1.2/24         fabric         of:0000525400d7cf3c     COMPLETE
   Total 1 nodes
 ```
 

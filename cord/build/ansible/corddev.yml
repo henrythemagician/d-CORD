@@ -22,5 +22,5 @@
     - docker
     - docker-compose
     - consul-template
-    #- java8-oracle
+    - java8-oracle
     - buildtools

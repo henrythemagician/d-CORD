@@ -23,7 +23,7 @@ debug: false
 
 # this is used to generate the genconfig/cord-inv file
 headnode:
-  ip: '10.106.0.1'
+  ip: '10.100.198.201'
   ansible_user: 'vagrant'
   ansible_ssh_pass: 'vagrant'
   ansible_ssh_port: 22
@@ -50,9 +50,9 @@ common:
     - 'interface_config'
 
   fabric_ip: '10.1.1.1/24'
-  management_ip: '10.106.0.1/24'
+  management_ip: '10.1.0.1/24'
   external_iface: 'eth0'
-  management_network: '10.106.0.0/24'
+  management_network: '10.1.0.0/24'
 
   # Specifies the extra settings required for this configuration
   #
