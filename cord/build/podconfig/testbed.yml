@@ -1,0 +1,19 @@
+---
+cord_profile: rcord
+cord_scenario: cord
+inventory_groups:
+  build:
+    corddev: ~
+  compute:
+    compute1:
+      ansible_host: "10.109.0.230"
+  config:
+    head1:
+      ansible_connection: local
+  head:
+    head1:
+      ansible_connection: local
+skipTags:
+  - switch_support
+  - reboot
+  - interface_config
