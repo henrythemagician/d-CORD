@@ -1,0 +1,13 @@
+# pack-refs with: peeled fully-peeled 
+6ca0562e64e9a5104da23a355b0e244710373f77 refs/remotes/opencord/cord-2.0
+e46128f45225dc8b97af085bfe81218650bdb66b refs/remotes/opencord/cord-3.0
+eb81ea90200a12d379876d37314a9e225c66ab9d refs/remotes/opencord/cord-4.0
+eb81ea90200a12d379876d37314a9e225c66ab9d refs/remotes/opencord/cord-4.1
+caecf42e82e1fe8c76007d8b83d8b1767f484e7e refs/remotes/opencord/cord-5.0
+6ee1a29d7aedca888a369f53f37d6c0d81f882ca refs/remotes/opencord/master
+0e9e0729f4f8fd996d15fef785df21365b4ca68c refs/remotes/opencord/null
+caecf42e82e1fe8c76007d8b83d8b1767f484e7e refs/remotes/opencord/voltha-1.0
+caecf42e82e1fe8c76007d8b83d8b1767f484e7e refs/remotes/opencord/voltha-1.1
+caecf42e82e1fe8c76007d8b83d8b1767f484e7e refs/remotes/opencord/voltha-1.2
+caecf42e82e1fe8c76007d8b83d8b1767f484e7e refs/remotes/opencord/voltha-1.3
+caecf42e82e1fe8c76007d8b83d8b1767f484e7e refs/remotes/opencord/voltha-2.0

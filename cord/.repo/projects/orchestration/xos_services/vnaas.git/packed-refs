@@ -1,0 +1,6 @@
+# pack-refs with: peeled fully-peeled 
+27399a0f2682e64939bca623c70ff70fed0d79ad refs/remotes/opencord/cord-3.0
+27399a0f2682e64939bca623c70ff70fed0d79ad refs/remotes/opencord/cord-4.0
+d46798d8fae193cfcfce9392603f88bd9a58b96a refs/remotes/opencord/cord-4.1
+14dcd2f43e21ee9a25cb56c7ec607845b3159ae0 refs/remotes/opencord/cord-5.0
+ef14f725553df8916ee9ba527d900e7df179be98 refs/remotes/opencord/master

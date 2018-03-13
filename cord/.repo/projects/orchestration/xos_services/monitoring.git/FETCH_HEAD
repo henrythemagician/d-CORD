@@ -1,0 +1,8 @@
+031e1b63de704bd495d1329c59648fa87abfcd70		branch 'cord-1.0' of https://gerrit.opencord.org/monitoring
+2462c1b03428155f8397a71c53ce12ebb0805a9e		branch 'cord-2.0' of https://gerrit.opencord.org/monitoring
+2a4cdf51cf600df36760e78b8d24a46d6b83750e		branch 'cord-3.0' of https://gerrit.opencord.org/monitoring
+df97081abcd640f857b9287f0ab75822cf290e37		branch 'cord-4.0' of https://gerrit.opencord.org/monitoring
+df97081abcd640f857b9287f0ab75822cf290e37		branch 'cord-4.1' of https://gerrit.opencord.org/monitoring
+49a0be9e04bc610217d70a682f401b9c64cc0892		branch 'cord-5.0' of https://gerrit.opencord.org/monitoring
+49a0be9e04bc610217d70a682f401b9c64cc0892		branch 'master' of https://gerrit.opencord.org/monitoring
+975d157680f31f1a000fe8ad8e556e7dfe1eb06d		branch 'null' of https://gerrit.opencord.org/monitoring

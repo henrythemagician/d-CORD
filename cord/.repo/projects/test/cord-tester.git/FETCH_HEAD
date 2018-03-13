@@ -1,0 +1,13 @@
+1e60250c0945385e0689a8cf6f12fc613b1deef2		branch 'cord-1.0' of https://gerrit.opencord.org/cord-tester
+7441973d196168c8595802a546bdabdf47b5c4c9		branch 'cord-2.0' of https://gerrit.opencord.org/cord-tester
+0265fae5946b7601a80491dcf6957d2637b30016		branch 'cord-3.0' of https://gerrit.opencord.org/cord-tester
+b918adb7f17e04bd6a3f17de6a77705be7818fee		branch 'cord-4.0' of https://gerrit.opencord.org/cord-tester
+705102ee8fcba42c72a3413f27d641057a0e189f		branch 'cord-4.1' of https://gerrit.opencord.org/cord-tester
+d9c4fd33ac9d4d5b2330f4a4e77d0dd8508e156c		branch 'cord-5.0' of https://gerrit.opencord.org/cord-tester
+465d46a382bdcedac128f75afe44386eab38b63c		branch 'master' of https://gerrit.opencord.org/cord-tester
+35495c3aa112314dac063133a1abff426a007eb0		branch 'null' of https://gerrit.opencord.org/cord-tester
+50c1c568d07566901a5b95fd36358444dcea874e	not-for-merge	tag '1.0.0' of https://gerrit.opencord.org/cord-tester
+eb62cbdf805b10df4d24ae7a1057ecfc0ad89db6	not-for-merge	tag 'cord-1.0-rc1' of https://gerrit.opencord.org/cord-tester
+9fc1c08950a1ff9f48400f1e4916062c1a9588f6	not-for-merge	tag 'cord-1.0-rc2' of https://gerrit.opencord.org/cord-tester
+9686ab4d606fbae34376ae4c0b8767bff80591fb	not-for-merge	tag 'cord-1.0-rc3' of https://gerrit.opencord.org/cord-tester
+9686ab4d606fbae34376ae4c0b8767bff80591fb	not-for-merge	tag 'cord-1.0-rc4' of https://gerrit.opencord.org/cord-tester

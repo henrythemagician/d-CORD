@@ -1,0 +1,13 @@
+522ac7e05a87b18341744dc3c94af7d54e272d00		branch 'cord-1.0' of https://gerrit.opencord.org/exampleservice
+3d2cabce946cfec34bb6cf5af746be15f4d6924c		branch 'cord-2.0' of https://gerrit.opencord.org/exampleservice
+2e6bfe3ae5d15bde937644dd913bccae6858189c		branch 'cord-3.0' of https://gerrit.opencord.org/exampleservice
+5bcf68370687d598ecb5c54c064b0388cf7a27e1		branch 'cord-4.0' of https://gerrit.opencord.org/exampleservice
+c9cdf759b9a70ce2c06f078813a8100c2ee3eb8c		branch 'cord-4.1' of https://gerrit.opencord.org/exampleservice
+84833a2e2509da488dc5e2ffd3857e358cb53f5e		branch 'cord-5.0' of https://gerrit.opencord.org/exampleservice
+ef32e0abc7ef91ae04006ecb4583abf986c06dd9		branch 'master' of https://gerrit.opencord.org/exampleservice
+a45f7c9503621d472cb23e92eb7952a3730a0a45		branch 'null' of https://gerrit.opencord.org/exampleservice
+522ac7e05a87b18341744dc3c94af7d54e272d00	not-for-merge	tag '1.0.0' of https://gerrit.opencord.org/exampleservice
+4c6e6c92de5cb8c211864f5e2c7eff5a6a1a42d4	not-for-merge	tag 'cord-1.0-rc1' of https://gerrit.opencord.org/exampleservice
+522ac7e05a87b18341744dc3c94af7d54e272d00	not-for-merge	tag 'cord-1.0-rc2' of https://gerrit.opencord.org/exampleservice
+522ac7e05a87b18341744dc3c94af7d54e272d00	not-for-merge	tag 'cord-1.0-rc3' of https://gerrit.opencord.org/exampleservice
+1edebd543189b9abec9b100d1861686032fd9dd8	not-for-merge	tag 'cord-1.0-rc4' of https://gerrit.opencord.org/exampleservice

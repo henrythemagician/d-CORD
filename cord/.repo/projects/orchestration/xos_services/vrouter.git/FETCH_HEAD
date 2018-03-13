@@ -1,0 +1,13 @@
+db9686cc6d8ca8f8d0065a6d36d09c4cbb351a76		branch 'cord-1.0' of https://gerrit.opencord.org/vrouter
+cd0f067b52eb705517b307d977c6c6407b015c57		branch 'cord-2.0' of https://gerrit.opencord.org/vrouter
+4435ce3e9707a4bda12a931153fbd8f7053b48de		branch 'cord-3.0' of https://gerrit.opencord.org/vrouter
+36cec1e1acda17c9f9bfacf66795f9fb743eacc9		branch 'cord-4.0' of https://gerrit.opencord.org/vrouter
+36cec1e1acda17c9f9bfacf66795f9fb743eacc9		branch 'cord-4.1' of https://gerrit.opencord.org/vrouter
+d9592c419aafc9d5db7a25bc45d40a2672fcc331		branch 'cord-5.0' of https://gerrit.opencord.org/vrouter
+1bba094e11c362e40c354089a03393558a319737		branch 'master' of https://gerrit.opencord.org/vrouter
+6c75ac73c5bad84faad65c1db8e9cea205425b6c		branch 'null' of https://gerrit.opencord.org/vrouter
+db9686cc6d8ca8f8d0065a6d36d09c4cbb351a76	not-for-merge	tag '1.0.0' of https://gerrit.opencord.org/vrouter
+db9686cc6d8ca8f8d0065a6d36d09c4cbb351a76	not-for-merge	tag 'cord-1.0-rc1' of https://gerrit.opencord.org/vrouter
+db9686cc6d8ca8f8d0065a6d36d09c4cbb351a76	not-for-merge	tag 'cord-1.0-rc2' of https://gerrit.opencord.org/vrouter
+db9686cc6d8ca8f8d0065a6d36d09c4cbb351a76	not-for-merge	tag 'cord-1.0-rc3' of https://gerrit.opencord.org/vrouter
+f7e5ac5b140168a07e68cde82eb87d6f483d0746	not-for-merge	tag 'cord-1.0-rc4' of https://gerrit.opencord.org/vrouter

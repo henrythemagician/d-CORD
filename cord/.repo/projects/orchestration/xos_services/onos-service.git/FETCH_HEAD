@@ -1,0 +1,13 @@
+82aaf127fb4c6a9b473515d6e10e4641856a5660		branch 'cord-1.0' of https://gerrit.opencord.org/onos-service
+542263888c2eeb2dbd3c7ecf9bcd7e0e9ab5b0ff		branch 'cord-2.0' of https://gerrit.opencord.org/onos-service
+e73328a9a1082f0b50630689a571a319903ef5e3		branch 'cord-3.0' of https://gerrit.opencord.org/onos-service
+b6fe54d3bb36fd648e3a3c1685c80ffea694b5fc		branch 'cord-4.0' of https://gerrit.opencord.org/onos-service
+2d849271197c5c0bab279ca2b9db42670259e0f7		branch 'cord-4.1' of https://gerrit.opencord.org/onos-service
+a0f6aa8d9e73f3a0fe6e7424cceeaafd8a78a855		branch 'cord-5.0' of https://gerrit.opencord.org/onos-service
+a2db56dd4760a3774b159105722afb6974cbe13f		branch 'master' of https://gerrit.opencord.org/onos-service
+bdf83cc41c5ee0bd2563baf1b721b91f7060bf50		branch 'null' of https://gerrit.opencord.org/onos-service
+82aaf127fb4c6a9b473515d6e10e4641856a5660	not-for-merge	tag '1.0.0' of https://gerrit.opencord.org/onos-service
+43bc3bf2db4b6b8e878602a72136dd1ac8a4ffc9	not-for-merge	tag 'cord-1.0-rc1' of https://gerrit.opencord.org/onos-service
+82aaf127fb4c6a9b473515d6e10e4641856a5660	not-for-merge	tag 'cord-1.0-rc2' of https://gerrit.opencord.org/onos-service
+82aaf127fb4c6a9b473515d6e10e4641856a5660	not-for-merge	tag 'cord-1.0-rc3' of https://gerrit.opencord.org/onos-service
+9507fc93e1f0f7a36bededd2f64a618f53abb53a	not-for-merge	tag 'cord-1.0-rc4' of https://gerrit.opencord.org/onos-service

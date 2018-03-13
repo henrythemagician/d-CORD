@@ -1,0 +1,14 @@
+d346c321f011e28b5a00ae76a5c79a76af15c858		branch 'cord-1.0' of https://gerrit.opencord.org/cord-onos-publisher
+35cec160593276aa46d387fbe0d466cb848d3a4e		branch 'cord-2.0' of https://gerrit.opencord.org/cord-onos-publisher
+0bf710f2cf8b3f3ff6fd57c5860264f895bbfcb0		branch 'cord-3.0' of https://gerrit.opencord.org/cord-onos-publisher
+d01d4ff02796b2eddb8601ed7791156f253f5187		branch 'cord-4.0' of https://gerrit.opencord.org/cord-onos-publisher
+222f26011396a5fa9afb9feee5102b9063e276d1		branch 'cord-4.1' of https://gerrit.opencord.org/cord-onos-publisher
+f0147873ff735ab00e63322ca284476f6b831475		branch 'cord-5.0' of https://gerrit.opencord.org/cord-onos-publisher
+335da4c02a91968d245f35199d3dd2d6193d579e		branch 'cord-onos-publisher-1.2' of https://gerrit.opencord.org/cord-onos-publisher
+f0147873ff735ab00e63322ca284476f6b831475		branch 'master' of https://gerrit.opencord.org/cord-onos-publisher
+0bf710f2cf8b3f3ff6fd57c5860264f895bbfcb0		branch 'null' of https://gerrit.opencord.org/cord-onos-publisher
+63d182af94ed03b49a3b7e117418a04572442fb5	not-for-merge	tag '1.0.0' of https://gerrit.opencord.org/cord-onos-publisher
+b0da11fe26fb62efb2700a2a74fb3f0e29317db9	not-for-merge	tag 'cord-1.0-rc1' of https://gerrit.opencord.org/cord-onos-publisher
+f464aedca92a23b4697e0e815b8d199425ba1b9e	not-for-merge	tag 'cord-1.0-rc2' of https://gerrit.opencord.org/cord-onos-publisher
+99a97ccdc7f8df6bcf9400017fd295e2629b8135	not-for-merge	tag 'cord-1.0-rc3' of https://gerrit.opencord.org/cord-onos-publisher
+75fda179eb805a23b435a189303f9ccba4f33e78	not-for-merge	tag 'cord-1.0-rc4' of https://gerrit.opencord.org/cord-onos-publisher

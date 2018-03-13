@@ -1,0 +1,12 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	ignorecase = true
+	precomposeunicode = true
+[filter "lfs"]
+	smudge = git-lfs smudge --skip -- %f
+[remote "opencord"]
+	url = https://gerrit.opencord.org/fabric-oftest
+	review = https://gerrit.opencord.org/
+	projectname = fabric-oftest
+	fetch = +refs/heads/*:refs/remotes/opencord/*

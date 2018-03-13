@@ -1,0 +1,14 @@
+# pack-refs with: peeled fully-peeled 
+d617a42dc115f77cc3f9f8bf9449887a77228273 refs/remotes/opencord/cord-1.0
+40e7d9d63e4c364dd86b8a2221eeb348cf88762e refs/remotes/opencord/cord-2.0
+37f71e387e523437bb87d8d362b3a9fce1bb1c01 refs/remotes/opencord/cord-3.0
+3121529bd586f830274fc7b51a80d645ba5d8008 refs/remotes/opencord/cord-4.0
+3fa6a7ab207a3ef38a659ec37b5cc6f0d312416f refs/remotes/opencord/cord-4.1
+e96314ee6c7e51ef41d25e18c79dc93b597d7add refs/remotes/opencord/cord-5.0
+e982ca95c6a4d8aeda8c516f57971e49a2254816 refs/remotes/opencord/master
+d69a42ecc36faa2cf79e2dd47f814e1d84e9cd56 refs/remotes/opencord/null
+d617a42dc115f77cc3f9f8bf9449887a77228273 refs/tags/1.0.0
+d617a42dc115f77cc3f9f8bf9449887a77228273 refs/tags/cord-1.0-rc1
+d617a42dc115f77cc3f9f8bf9449887a77228273 refs/tags/cord-1.0-rc2
+d617a42dc115f77cc3f9f8bf9449887a77228273 refs/tags/cord-1.0-rc3
+b5deceb819b351cdba7b2c5c2f041c10dc3ef57b refs/tags/cord-1.0-rc4

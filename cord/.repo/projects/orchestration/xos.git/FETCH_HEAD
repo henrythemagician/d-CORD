@@ -1,0 +1,27 @@
+a40b32e5b88afd7a1b5b53e12759302cf9d9f1e7		branch 'bugfix/wrong-gateway' of https://gerrit.opencord.org/xos
+cdc1e6414e5c032cffb777964b33a9baad5ebdd4		branch 'cord-1.0' of https://gerrit.opencord.org/xos
+94c8a1b6b65990d684d0f6c7a7b62710492e3530		branch 'cord-2.0' of https://gerrit.opencord.org/xos
+ec1c852e6389aeea087059def5736cac13278c09		branch 'cord-3.0' of https://gerrit.opencord.org/xos
+45583fdabc1eeb13db81f98fdf94d05a68c46858		branch 'cord-4.0' of https://gerrit.opencord.org/xos
+2a7f4f6496df2374345c32ae9011b4424cb25b9c		branch 'cord-4.1' of https://gerrit.opencord.org/xos
+47e8aa915766e11af108139e1980882a107d77fb		branch 'cord-5.0' of https://gerrit.opencord.org/xos
+fcfa46f0b4ffc2e07fd281c2cf19df0e0f1e1c01		branch 'feature/add-exampleservice' of https://gerrit.opencord.org/xos
+39278865a190f9caa52c2b527de94e8b7bc9a2a9		branch 'feature/bidirectional' of https://gerrit.opencord.org/xos
+d17947d6f74f9f8a9fb477e1d2a6dc9cfb88045f		branch 'feature/cord-pod-deploy' of https://gerrit.opencord.org/xos
+0da06985e2198a8d220fd6b20d77d620733df2d5		branch 'feature/e2e-tests' of https://gerrit.opencord.org/xos
+cd6e972210f4134ffb2f7a36fb3c4baf33f02bef		branch 'feature/exampleservice' of https://gerrit.opencord.org/xos
+657d5b4b61663d3af789bb39ee329f4a1d8c5edf		branch 'feature/fabric-synchronizer' of https://gerrit.opencord.org/xos
+0a450ee098fcc16e7e6f7d0617d341a04b3f5d79		branch 'feature/lts' of https://gerrit.opencord.org/xos
+d70636c62aefb4160b119490972fb8c6ebbd2664		branch 'feature/new-cord-repo' of https://gerrit.opencord.org/xos
+7015c4d2023bb72eb74afe7237fce6162f4617a8		branch 'feature/onboard' of https://gerrit.opencord.org/xos
+8a686e269c5f422b5f59476c9951009f23a5f39a		branch 'feature/roles-setup' of https://gerrit.opencord.org/xos
+a13ce0452539c4f09fb5675fdfc817c5021d66f6		branch 'feature/syndicate' of https://gerrit.opencord.org/xos
+55b7522d7b950ec6e2d3bce573e90a188f647641		branch 'feature/volt' of https://gerrit.opencord.org/xos
+0b8583566f847333d674d3f07e5f177490ab5b5b		branch 'feature/volt-autoconfig' of https://gerrit.opencord.org/xos
+083a3b6775c8752d8bb177d0d5af4c17d8ed8d51		branch 'master' of https://gerrit.opencord.org/xos
+e7a0e1ce3e47b42682b42cc41fe0048f0b32d335		branch 'null' of https://gerrit.opencord.org/xos
+cdc1e6414e5c032cffb777964b33a9baad5ebdd4	not-for-merge	tag '1.0.0' of https://gerrit.opencord.org/xos
+eb3e48afde4a947c223246675669ba75a1d08ab3	not-for-merge	tag 'cord-1.0-rc1' of https://gerrit.opencord.org/xos
+5bf4a50cdbf1e73584f5eb2b30291c11b898bfbc	not-for-merge	tag 'cord-1.0-rc2' of https://gerrit.opencord.org/xos
+5bf4a50cdbf1e73584f5eb2b30291c11b898bfbc	not-for-merge	tag 'cord-1.0-rc3' of https://gerrit.opencord.org/xos
+709912ccef5c03e5418796a6e608f1048a8f7203	not-for-merge	tag 'cord-1.0-rc4' of https://gerrit.opencord.org/xos

@@ -1,0 +1,1 @@
+0000000000000000000000000000000000000000 6c0804cb8b53be2be4f574e74545e67619e5784a Haoyun Shen <h.shen.de@ieee.org> 1520942684 +0100	fetch --progress opencord --tags +refs/heads/*:refs/remotes/opencord/* +refs/heads/cord-5.0:refs/remotes/opencord/cord-5.0: storing head

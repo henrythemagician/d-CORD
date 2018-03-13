@@ -1,0 +1,29 @@
+{
+  "core.filemode": [
+    "true"
+  ], 
+  "remote.opencord.projectname": [
+    "onos-service"
+  ], 
+  "core.repositoryformatversion": [
+    "0"
+  ], 
+  "remote.opencord.fetch": [
+    "+refs/heads/*:refs/remotes/opencord/*"
+  ], 
+  "core.ignorecase": [
+    "true"
+  ], 
+  "filter.lfs.smudge": [
+    "git-lfs smudge --skip -- %f"
+  ], 
+  "core.precomposeunicode": [
+    "true"
+  ], 
+  "remote.opencord.review": [
+    "https://gerrit.opencord.org/"
+  ], 
+  "remote.opencord.url": [
+    "https://gerrit.opencord.org/onos-service"
+  ]
+}

@@ -1,0 +1,12 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	ignorecase = true
+	precomposeunicode = true
+[filter "lfs"]
+	smudge = git-lfs smudge --skip -- %f
+[remote "opencord"]
+	url = https://gerrit.opencord.org/vtn-service
+	review = https://gerrit.opencord.org/
+	projectname = vtn-service
+	fetch = +refs/heads/*:refs/remotes/opencord/*

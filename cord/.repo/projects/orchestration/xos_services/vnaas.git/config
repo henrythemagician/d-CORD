@@ -1,0 +1,12 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	ignorecase = true
+	precomposeunicode = true
+[filter "lfs"]
+	smudge = git-lfs smudge --skip -- %f
+[remote "opencord"]
+	url = https://gerrit.opencord.org/vnaas
+	review = https://gerrit.opencord.org/
+	projectname = vnaas
+	fetch = +refs/heads/*:refs/remotes/opencord/*

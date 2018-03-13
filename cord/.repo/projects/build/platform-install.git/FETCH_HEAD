@@ -1,0 +1,13 @@
+aa142e7ab1cba12c14a5bfdd4428337b0a427826		branch 'cord-1.0' of https://gerrit.opencord.org/platform-install
+c5dfa8fa54ce90eced16f2c23885e223122fd466		branch 'cord-2.0' of https://gerrit.opencord.org/platform-install
+0a651a5bbf6c8a7ed43626941bc30eb89e798604		branch 'cord-3.0' of https://gerrit.opencord.org/platform-install
+71d2bda054b438ddd916c94f3912d593da23c36e		branch 'cord-4.0' of https://gerrit.opencord.org/platform-install
+3edd75ec2762fc09d9395692d8f0f62731250d6b		branch 'cord-4.1' of https://gerrit.opencord.org/platform-install
+1d66f2581505670e5e59af641d0b812a4d97969e		branch 'cord-5.0' of https://gerrit.opencord.org/platform-install
+2be81f7c96f3dfe8fee85ed5a4b002d39fe60396		branch 'master' of https://gerrit.opencord.org/platform-install
+bcf965f783fd5330a064df25aa44f1eba55aaf5a		branch 'null' of https://gerrit.opencord.org/platform-install
+aa142e7ab1cba12c14a5bfdd4428337b0a427826	not-for-merge	tag '1.0.0' of https://gerrit.opencord.org/platform-install
+de088d03bc6a53e14d9f87ec19d4b6aa14cfe18f	not-for-merge	tag 'cord-1.0-rc1' of https://gerrit.opencord.org/platform-install
+e07e0d76ca7d79ae1b9d71936d60c733f6676f6e	not-for-merge	tag 'cord-1.0-rc2' of https://gerrit.opencord.org/platform-install
+310abc1ea9c90853e8f003301a6e0ff80a0966b3	not-for-merge	tag 'cord-1.0-rc3' of https://gerrit.opencord.org/platform-install
+d5a9cce3f44aa2694984afeb0c33a67172d59932	not-for-merge	tag 'cord-1.0-rc4' of https://gerrit.opencord.org/platform-install

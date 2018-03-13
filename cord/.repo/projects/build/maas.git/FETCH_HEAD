@@ -1,0 +1,14 @@
+7d6cc996be637d3e6a2a6530f809dc374de3667d		branch 'cord-1.0' of https://gerrit.opencord.org/maas
+a577fdac59be227f2fe698ab55c13e515d2f575b		branch 'cord-1604' of https://gerrit.opencord.org/maas
+41bdfd2d4fd9a1bb32c09a5324077568447ef524		branch 'cord-2.0' of https://gerrit.opencord.org/maas
+9232afd37cf7bd5456f46655fca2bc6b9de7c7fd		branch 'cord-3.0' of https://gerrit.opencord.org/maas
+c33861ac268e5a8bdc4c3670957757a3b5af0011		branch 'cord-4.0' of https://gerrit.opencord.org/maas
+ccb8ae6d2d49c651fb3958ea72467fe7a785bb9e		branch 'cord-4.1' of https://gerrit.opencord.org/maas
+17089a7ab6c7303f3452f9585b335576155a46d2		branch 'cord-5.0' of https://gerrit.opencord.org/maas
+71a945bc819c956fa48a4fd427af3e7bd6c9d12b		branch 'master' of https://gerrit.opencord.org/maas
+799d493a8611efd5ab9dd3578a620874dea480c1		branch 'null' of https://gerrit.opencord.org/maas
+a12b39a61c4e4b6cd938b08d04c3d51f4465d27e	not-for-merge	tag '1.0.0' of https://gerrit.opencord.org/maas
+66a60340fad9f58ecdde0c5be68f446e134cea82	not-for-merge	tag 'cord-1.0-rc1' of https://gerrit.opencord.org/maas
+f35d4b84e24e47d298504ab659a550111891b05a	not-for-merge	tag 'cord-1.0-rc2' of https://gerrit.opencord.org/maas
+acd218afbc1751147572d9c37c1f62f00c78da73	not-for-merge	tag 'cord-1.0-rc3' of https://gerrit.opencord.org/maas
+16a9b4449d26111458fad692531fdc730477c261	not-for-merge	tag 'cord-1.0-rc4' of https://gerrit.opencord.org/maas
