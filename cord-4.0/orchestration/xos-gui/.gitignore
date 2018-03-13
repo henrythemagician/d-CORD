@@ -1,0 +1,11 @@
+.idea/
+.DS_Store
+.tmp/
+.gitreview
+docs/_book/
+_book/
+coverage/
+dist/
+node_modules/
+npm-debug.log
+typings/

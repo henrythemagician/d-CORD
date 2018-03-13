@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#-----------------------------------------------
+#Updates versions for all onos cord applications
+#-----------------------------------------------
+
+APP_VERSION=$1
+ONOS_VERSION=$2
+APPS="aaa config igmp mcast olt vtn"
+
+cd apps
+
+mvn -U versions:set -DallowSnapshots=true -DnewVersion=$APP_VERSION versions:commit
+
+for app in $APPS; do
+    cd $app
+    mvn -U versions:set -DallowSnapshots=true -DnewVersion=$APP_VERSION versions:commit
+    mvn -U versions:update-parent -DallowSnapshots=true -DparentVersion=[$ONOS_VERSION] versions:commit
+    mvn -U versions:update-property -Dproperty=onos.version -DnewVersion=[$ONOS_VERSION] -DallowSnapshots=true versions:commit
+    cd ..
+done

@@ -1,0 +1,61 @@
+
+# Copyright 2017-present Open Networking Foundation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+---
+- hosts: {{ instance_name }}
+  gather_facts: False
+  connection: ssh
+  user: {{ username }}
+  become: yes
+  vars:
+      rabbit_user: {{ rabbit_user }}
+      rabbit_password: {{ rabbit_password }}
+      rabbit_host: {{ rabbit_host }}
+      listen_ip_addr: {{ listen_ip_addr }}
+
+  tasks:
+
+  - name: Verify if udpagent ([] is to avoid capturing the shell process) is already running
+    shell: pgrep -f [u]dpagent | wc -l
+    register: udpagent_job_pids_count
+
+  - name: DEBUG
+    debug: var=udpagent_job_pids_count.stdout
+
+  - name: stop /usr/local/share/udp_proxy if already running
+    shell: pkill -f /usr/local/share/udp_proxy/udpagent.py
+    ignore_errors: True
+    when: udpagent_job_pids_count.stdout !=  "0"
+
+  - name: make sure /usr/local/share/udp_proxy exists
+    file: path=/usr/local/share/udp_proxy state=directory owner=root group=root
+
+  - name: Copy udp_proxy component files to destination
+    copy: src=/opt/xos/synchronizers/monitoring/ceilometer/udp_proxy/udpagent.py
+      dest=/usr/local/share/udp_proxy/udpagent.py
+
+  - name: udp_proxy config
+    template: src=/opt/xos/synchronizers/monitoring/templates/udpagent.conf.j2 dest=/usr/local/share/udp_proxy/udpagent.conf mode=0777
+
+  - name: install python-kombu
+    apt: name=python-kombu state=present
+
+  - name: Launch udp_proxy
+    command: python /usr/local/share/udp_proxy/udpagent.py
+    args:
+       chdir: /usr/local/share/udp_proxy/
+    async: 9999999999999999
+    poll: 0

@@ -1,0 +1,63 @@
+
+# Copyright 2017-present Open Networking Foundation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+---
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+  - os_network:
+     auth:
+        auth_url: "{{ endpoint }}"
+        username: "{{ admin_user }}"
+        password: "{{ admin_password }}"
+        project_name: "{{ admin_project }}"
+     name: "{{ name }}"
+     shared: true
+     {% if not delete -%}
+     state: present
+     {% else -%}
+     state: absent
+     {% endif -%}
+
+{% if not delete %}
+  - os_subnet:
+      auth:
+        auth_url: "{{ endpoint }}"
+        username: "{{ admin_user }}"
+        password: "{{ admin_password }}"
+        project_name: "{{ admin_project }}"
+      name: "{{ subnet_name }}"
+      network_name: "{{ name }}"
+      {% if not delete -%}
+      state: present
+      cidr: "{{ cidr }}"
+      dns_nameservers: "8.8.8.8"
+      {% if use_vtn -%}
+      gateway_ip: "{{ gateway }}"
+      {% else -%}
+      no_gateway_ip: yes
+      {% endif -%}
+      {% if start_ip -%}
+      allocation_pool_start: "{{ start_ip }}"
+      {% endif -%}
+      {% if end_ip -%}
+      allocation_pool_end: "{{ end_ip }}"
+      {% endif -%}
+      {% else -%}
+      state: absent
+      {% endif -%}
+{% endif %}
+

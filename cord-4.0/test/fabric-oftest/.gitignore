@@ -1,0 +1,6 @@
+*.pyc
+profiles/*.pyc
+*~
+*.log
+*.patch
+*.pcap
