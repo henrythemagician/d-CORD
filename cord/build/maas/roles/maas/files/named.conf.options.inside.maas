@@ -1,9 +1,0 @@
-forwarders {
-    8.8.8.8;
-};
-
-dnssec-validation auto;
-
-allow-query { any; };
-allow-recursion { trusted; };
-allow-query-cache { trusted; };

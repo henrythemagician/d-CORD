@@ -1,7 +1,0 @@
-#! /bin/bash
-
-bash /opt/xos/tools/docker_setup_xos
-
-cd /opt/xos
-PUBLIC_HOSTNAME="0.0.0.0"
-python manage.py runserver $PUBLIC_HOSTNAME:8000 --insecure
