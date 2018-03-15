@@ -6,7 +6,7 @@ def deploy(context):
     resource = context.v1.resource
     logger.info('Hey there,')
     logger.info('I\'m resource generator {}'.format(resource.name))
-    endpoint = { 
+    endpoint = {
         'url': 'https://demo.resouces',
         'user': 'scotty',
         'password': '***********',
@@ -15,4 +15,5 @@ def deploy(context):
     return endpoint
 
 def clean(context):
+    logger.info('I\'m resource cleaner {}'.format(resource.name))
     pass

@@ -28,4 +28,5 @@ def collect(context):
         f.write('result 2\n')
 
 def clean(context):
+    logger.info('I\'m workload cleaner {}'.format(workload.name))
     pass
