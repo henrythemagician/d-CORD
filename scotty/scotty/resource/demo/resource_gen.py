@@ -15,5 +15,6 @@ def deploy(context):
     return endpoint
 
 def clean(context):
+    resource = context.v1.resource
     logger.info('I\'m resource cleaner {}'.format(resource.name))
     pass
