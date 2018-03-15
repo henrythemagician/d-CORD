@@ -41,8 +41,6 @@ Vagrant.configure(2) do |config|
         libvirt__network_name: settings['vm_management_network_name'],
         libvirt__forward_mode: "none",
         libvirt__dhcp_enabled: false
-    d.vm.provision :shell, inline: "sudo ip link set eth1 up"
-    d.vm.provision :shell, inline: "sudo ifconfig eth1 10.1.0.201/24 up"
     d.vm.provider :libvirt do |v|
       v.memory = 2048
       v.cpus = 2
