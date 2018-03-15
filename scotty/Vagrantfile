@@ -26,5 +26,28 @@ Vagrant.configure(2) do |config|
     end
   end
 
- 
+
+end
+
+Vagrant.configure(2) do |config|
+
+  config.vm.define "influxdb" do |d|
+    d.vm.box = "centos/7"
+    d.vm.hostname = "influxdb"
+    d.vm.network "private_network",
+        ip: "0.0.0.0", # not used, ignore
+        auto_config: false,
+        virtualbox__intnet: settings['vm_management_network_name'],
+        libvirt__network_name: settings['vm_management_network_name'],
+        libvirt__forward_mode: "none",
+        libvirt__dhcp_enabled: false
+    d.vm.provision :shell, inline: "sudo ip link set eth2 up"
+    d.vm.provision :shell, inline: "sudo ifconfig eth2 10.1.0.201/24 up"
+    d.vm.provider :libvirt do |v|
+      v.memory = 2048
+      v.cpus = 2
+    end
+  end
+
+
 end
