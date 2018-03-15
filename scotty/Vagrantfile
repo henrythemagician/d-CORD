@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+require 'yaml'
+settings = YAML.load_file('../cord/build/genconfig/config.yml')
+
+Vagrant.configure(2) do |config|
+
+  config.vm.define "scotty" do |d|
+    d.vm.box = "ubuntu/trusty64"
+    d.vm.hostname = "scotty"
+    d.vm.network "public_network", ip: "10.109.0.234",netmask: "255.255.255.0", dev: "em1"
+    d.vm.network "private_network",
+        ip: "0.0.0.0", # not used, ignore
+        auto_config: false,
+        virtualbox__intnet: settings['vm_management_network_name'],
+        libvirt__network_name: settings['vm_management_network_name'],
+        libvirt__forward_mode: "none",
+        libvirt__dhcp_enabled: false
+    d.vm.provision :shell, inline: "sudo ip link set eth2 up"
+    d.vm.provision :shell, inline: "sudo ifconfig eth2 10.1.0.200/24 up"
+    d.vm.provision :shell, inline: "route add -net 134.76.22.0 netmask 255.255.255.0 gw 10.109.0.254"
+    d.vm.provider :libvirt do |v|
+      v.memory = 2048
+      v.cpus = 2
+    end
+  end
+
+
+end
