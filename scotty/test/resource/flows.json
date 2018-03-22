@@ -1,0 +1,110 @@
+http://10.109.0.233/fabric/onos/v1/flows/of:00008cea1b96f560
+
+{
+  "priority": 65535,
+  "timeout": 0,
+  "tableId": 60,
+  "isPermanent": true,
+  "deviceId": "of:00008cea1b96f560",
+  "treatment": {
+    "deferred": [
+      {
+        "type": "GROUP",
+        "groupId": "268304385"
+      }
+    ]
+  },
+  "selector": {
+    "criteria": [
+      {
+        "type": "IN_PORT",
+        "port": "2"
+      },
+      {
+        "type": "ETH_TYPE",
+        "ethType": "0x800"
+      }
+    ]
+  }
+},
+{
+  "priority": 65535,
+  "timeout": 0,
+  "tableId": 60,
+  "isPermanent": true,
+  "deviceId": "of:00008cea1b96f560",
+  "treatment": {
+    "deferred": [
+      {
+        "type": "GROUP",
+        "groupId": "268304386"
+      }
+    ]
+  },
+  "selector": {
+    "criteria": [
+      {
+        "type": "IN_PORT",
+        "port": "1"
+      },
+      {
+        "type": "ETH_TYPE",
+        "ethType": "0x800"
+      }
+    ]
+  }
+},
+{
+  "priority": 65535,
+  "timeout": 0,
+  "tableId": 60,
+  "isPermanent": true,
+  "deviceId": "of:00008cea1b96f560",
+  "treatment": {
+    "deferred": [
+      {
+        "type": "GROUP",
+        "groupId": "268304385"
+      }
+    ]
+  },
+  "selector": {
+    "criteria": [
+      {
+        "type": "IN_PORT",
+        "port": "2"
+      },
+      {
+        "type": "ETH_TYPE",
+        "ethType": "0x806"
+      }
+    ]
+  }
+},
+{
+  "priority": 65535,
+  "timeout": 0,
+  "tableId": 60,
+  "isPermanent": true,
+  "deviceId": "of:00008cea1b96f560",
+  "treatment": {
+    "deferred": [
+      {
+        "type": "GROUP",
+        "groupId": "268304386"
+      }
+    ]
+  },
+  "selector": {
+    "criteria": [
+      {
+        "type": "IN_PORT",
+        "port": "1"
+      },
+      {
+        "type": "ETH_TYPE",
+        "ethType": "0x806"
+      }
+    ]
+  }
+}

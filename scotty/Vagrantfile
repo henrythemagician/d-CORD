@@ -41,6 +41,14 @@ Vagrant.configure(2) do |config|
         libvirt__network_name: settings['vm_management_network_name'],
         libvirt__forward_mode: "none",
         libvirt__dhcp_enabled: false
+    d.vm.network "forwarded_port", guest: 8083, host: 18083, protocol: "tcp",
+        auto_correct: true, host_ip: "10.109.0.231"
+    d.vm.network "forwarded_port", guest: 8086, host: 18086, protocol: "tcp",
+        auto_correct: true, host_ip: "10.109.0.231"
+    d.vm.network "forwarded_port", guest: 3000, host: 13000, protocol: "tcp",
+        auto_correct: true, host_ip: "10.109.0.231"
+    d.vm.network "forwarded_port", guest: 8008, host: 18008, protocol: "tcp",
+        auto_correct: true, host_ip: "10.109.0.231"
     d.vm.provider :libvirt do |v|
       v.memory = 2048
       v.cpus = 2
