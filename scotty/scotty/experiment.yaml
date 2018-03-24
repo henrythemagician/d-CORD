@@ -5,6 +5,11 @@ description: |
     - resources
     - workloads"
 resources:
+  - name: demo_resource
+    generator: file:resource/demo
+  - name: demo_resource_2
+    generator: file:resource/demo
+workloads:
   - name: iperf3_test
     generator: file:workload/demo
     params:
