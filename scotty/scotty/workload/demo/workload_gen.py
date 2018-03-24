@@ -31,9 +31,9 @@ def run(context):
             # logger.info(output)
             #mystr = output.decode(encoding='UTF-8')
             # logger.info(mystr)
-    for i in range(0, iterations):
-        logger.info('Iteration: {}'.format(i))
-        time.sleep(sleep_in_sec)
+#    for i in range(0, iterations):
+#        logger.info('Iteration: {}'.format(i))
+#        time.sleep(sleep_in_sec)
     result = 'result'
     return result
 
