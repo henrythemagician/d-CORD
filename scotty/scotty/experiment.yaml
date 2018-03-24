@@ -34,7 +34,7 @@ workloads:
       iterations: 5
     resources:
       demo_res: demo_resource
-  - name: demo_workload_4
+  - name: iperf3_test
     generator: file:workload/demo
     params:
       greeting: "Hallo"
