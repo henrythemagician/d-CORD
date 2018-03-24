@@ -23,12 +23,14 @@ def run(context):
                        password='Sendate2017', look_for_keys=False, allow_agent=False)
         myshell = myconn.invoke_shell()
         for k in range(0, 5):
-            shell_cmd = ' iperf3  -c  10.6.3.101 -u -b 0 -l %s -n 1000000000 -V -J | tee results/test_result_%s.json  \n'%(str(1000 + 100 * k), str(k + 1))
+            shell_cmd = ' iperf3  -c  10.6.3.101 -u -b 0 -l %s -n 1000000000 -V -J | tee results/test_result_%s.json  \n' % (
+                str(1000 + 100 * k), str(k + 1))
             myshell.send(shell_cmd)
-            time.sleep(3)
-#        output = myshell.recv(65535)
+            time.sleep(5)
+            output = myshell.recv(65535)
+            logger.info(output)
         myconn.close()
-        # logger.info(output)
+
         #mystr = output.decode(encoding='UTF-8')
         # logger.info(mystr)
 #    for i in range(0, iterations):
