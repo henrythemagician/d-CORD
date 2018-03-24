@@ -31,8 +31,8 @@ def run(context):
     #        output = myshell.recv(65535)
     #        logger.info(output)
             myconn.close()
-            mystr = output.decode(encoding='UTF-8')
-            logger.info(mystr)
+    #        mystr = output.decode(encoding='UTF-8')
+    #        logger.info(mystr)
         time.sleep(sleep_in_sec)
     result = 'result'
     return result
