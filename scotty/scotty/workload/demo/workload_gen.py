@@ -11,31 +11,29 @@ def run(context):
     experiment_helper = utils.ExperimentHelper(context)
     demo_resource = experiment_helper.get_resource(
         workload.resources['demo_res'])
-#    iterations = workload.params['iterations']
-#    sleep_in_sec = workload.params['sleep']
+    iterations = workload.params['iterations']
+    sleep_in_sec = workload.params['sleep']
     logger.info('{}'.format(workload.params['greeting']))
     logger.info('I\'m workload generator {}'.format(workload.name))
     logger.info('Resource endpoint: {}'.format(demo_resource.endpoint))
     if workload.name == "iperf3_test":
+
+    for i in range(0, iterations):
+        logger.info('Iteration: {}'.format(i))
         myconn = paramiko.SSHClient()
         myconn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         myconn.connect('10.1.0.2', port=22, username='cloud',
                        password='Sendate2017', look_for_keys=False, allow_agent=False)
         myshell = myconn.invoke_shell()
-        for k in range(0, 5):
-            shell_cmd = ' iperf3  -c  10.6.3.101 -u -b 0 -l %s -n 1000000000 -V -J | tee results/test_result_%s.json  \n' % (
-                str(1000 + 100 * k), str(k + 1))
-            myshell.send(shell_cmd)
-            time.sleep(5)
-            output = myshell.recv(65535)
-            logger.info(output)
+        shell_cmd = ' iperf3  -c  10.6.3.101 -u -b 0 -l %s -n 1000000000 -V -J | tee results/test_result_%s.json  \n' % (
+                str(1000 + 100 * iterations), str(iterations + 1))
+        myshell.send(shell_cmd)
+#        output = myshell.recv(65535)
+#        logger.info(output)
         myconn.close()
-
-        #mystr = output.decode(encoding='UTF-8')
-        # logger.info(mystr)
-#    for i in range(0, iterations):
-#        logger.info('Iteration: {}'.format(i))
-#        time.sleep(sleep_in_sec)
+        mystr = output.decode(encoding='UTF-8')
+        logger.info(mystr)
+        time.sleep(sleep_in_sec)
     result = 'result'
     return result
 
