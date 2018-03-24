@@ -34,3 +34,11 @@ workloads:
       iterations: 5
     resources:
       demo_res: demo_resource
+  - name: demo_workload_4
+    generator: file:workload/demo
+    params:
+      greeting: "Hallo"
+      sleep: 1
+      iterations: 1
+    resources:
+      demo_res: demo_resource

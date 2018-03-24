@@ -1,6 +1,6 @@
 import logging
 import time
-
+import paramiko
 from scotty import utils
 
 logger = logging.getLogger(__name__)
@@ -18,6 +18,20 @@ def run(context):
         logger.info('Iteration: {}'.format(i))
         time.sleep(sleep_in_sec)
     result = 'result'
+    if workload.name == "iperf3_test"
+        myconn = paramiko.SSHClient()
+        myconn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        myconn.connect('10.1.0.2', port=22, username='cloud',
+                        password='Sendate2017', look_for_keys=False,
+                        allow_agent=False)
+        myshell = myconn.invoke_shell()
+        myshell.send(' iperf3  -c  10.6.3.101 -u -b 0 -l 1500 -n 1000000000 -V -J | tee test_result_$(date -d "today" +"%Y%m%d%H%M").json  \n')
+        time.sleep(10)
+        output = myshell.recv(65535)
+        myconn.close()
+        logger.info(output)
+        mystr = output.decode(encoding='UTF-8')
+        logger.info(mystr)
     return result
 
 def collect(context):
