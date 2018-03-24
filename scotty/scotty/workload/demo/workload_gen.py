@@ -11,25 +11,26 @@ def run(context):
     experiment_helper = utils.ExperimentHelper(context)
     demo_resource = experiment_helper.get_resource(
         workload.resources['demo_res'])
-    iterations = workload.params['iterations']
-    sleep_in_sec = workload.params['sleep']
+#    iterations = workload.params['iterations']
+#    sleep_in_sec = workload.params['sleep']
     logger.info('{}'.format(workload.params['greeting']))
     logger.info('I\'m workload generator {}'.format(workload.name))
     logger.info('Resource endpoint: {}'.format(demo_resource.endpoint))
     if workload.name == "iperf3_test":
-        myconn = paramiko.SSHClient()
-        myconn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        myconn.connect('10.1.0.2', port=22, username='cloud',
-                       password='Sendate2017', look_for_keys=False, allow_agent=False)
-        myshell = myconn.invoke_shell()
-        myshell.send(
-            ' iperf3  -c  10.6.3.101 -u -b 0 -l 1500 -n 1000000000 -V -J | tee test_result_$(date -d "today" +"%Y%m%d%H%M").json  \n')
-        time.sleep(10)
-        output = myshell.recv(65535)
-        myconn.close()
-        logger.info(output)
-        mystr = output.decode(encoding='UTF-8')
-        logger.info(mystr)
+        for k in range(0, 5):
+            myconn = paramiko.SSHClient()
+            myconn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            myconn.connect('10.1.0.2', port=22, username='cloud',
+                           password='Sendate2017', look_for_keys=False, allow_agent=False)
+            myshell = myconn.invoke_shell()
+            myshell.send(
+                ' iperf3  -c  10.6.3.101 -u -b 0 -l %s -n 1000000000 -V -J | tee results/test_result_%s.json  \n', str(1000 + 100 * k), str(k + 1))
+            time.sleep(3)
+#        output = myshell.recv(65535)
+            myconn.close()
+            # logger.info(output)
+            #mystr = output.decode(encoding='UTF-8')
+            # logger.info(mystr)
     for i in range(0, iterations):
         logger.info('Iteration: {}'.format(i))
         time.sleep(sleep_in_sec)
