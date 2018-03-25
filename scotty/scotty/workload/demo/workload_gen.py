@@ -59,6 +59,7 @@ def clean(context):
     shell_cmd = ' tar -czvf '+workload.name+'_$(date -d "today" +"%Y%m%d%H%M").tar.gz results \n'
     logger.info(shell_cmd)
     myshell.send(shell_cmd)
+    time.sleep(1)
     shell_cmd2 = ' rm results/* \n'
     logger.info(shell_cmd2)
     myshell.send(shell_cmd2)
