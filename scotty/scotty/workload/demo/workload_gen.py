@@ -21,6 +21,7 @@ def run(context):
     myconn.connect('10.1.0.2', port=22, username='cloud',
                password='Sendate2017', look_for_keys=False, allow_agent=False)
     myshell = myconn.invoke_shell()
+    time.sleep(1)
     for i in range(0, iterations):
         logger.info('Iteration: {}'.format(i))
         if workload.name == "iperf3_test":
@@ -35,6 +36,7 @@ def run(context):
         time.sleep(sleep_in_sec)
     result = 'result'
     myconn.close()
+    time.sleep(1)
     return result
 
 
