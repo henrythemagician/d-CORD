@@ -24,15 +24,17 @@ def run(context):
     time.sleep(1)
     for i in range(0, iterations):
         logger.info('Iteration: {}'.format(i))
-        if workload.name == "iperf3_test":
-            shell_cmd = ' iperf3  -c  10.6.3.101 -u -b 0 -l %s -n 300000000 -V -J | tee results/%s_%s.json  \n' % (
-                str(1000 + 100 * i),workload.name, str(i + 1))
-            logger.info(shell_cmd)
-            myshell.send(shell_cmd)
-    #        output = myshell.recv(65535)
-    #        logger.info(output)
-    #        mystr = output.decode(encoding='UTF-8')
-    #        logger.info(mystr)
+        if workload.name == "fixed_data":
+            shell_cmd = ' iperf3  -c  10.6.3.101 -u -b 0 -l %s -n 300000000 -V -J | tee %s_results/%s_%s.json  \n' % (
+                str(1000 + 100 * i),workload.name,workload.name, str(i + 1))
+        if workload.name == "fixed_MTU":
+            shell_cmd = ' iperf3  -c  10.6.3.101 -u -b 0 -l 1500 -n %s -V -J | tee %s_results/%s_%s.json  \n' % (
+                str(5000000 + 5000000 * i),workload.name,workload.name, str(i + 1))
+        if workload.name == "fixed_MTU_Jumbo":
+            shell_cmd = ' iperf3  -c  10.6.3.101 -u -b 0 -l 8950 -n %s -V -J | tee %s_results/%s_%s.json  \n' % (
+                str(5000000 + 5000000 * i),workload.name,workload.name, str(i + 1))
+        logger.info(shell_cmd)
+        myshell.send(shell_cmd)
         time.sleep(sleep_in_sec)
     result = 'result'
     myconn.close()
@@ -56,11 +58,11 @@ def clean(context):
     myconn.connect('10.1.0.2', port=22, username='cloud',
                password='Sendate2017', look_for_keys=False, allow_agent=False)
     myshell = myconn.invoke_shell()
-    shell_cmd = ' tar -czvf '+workload.name+'_$(date -d "today" +"%Y%m%d%H%M").tar.gz results \n'
+    shell_cmd = ' tar -czvf '+workload.name+'_$(date -d "today" +"%Y%m%d%H%M").tar.gz '+workload.name+'_results \n'
     logger.info(shell_cmd)
     myshell.send(shell_cmd)
     time.sleep(1)
-    shell_cmd2 = ' rm results/* \n'
+    shell_cmd2 = ' rm '+workload.name+'_results/* \n'
     logger.info(shell_cmd2)
     myshell.send(shell_cmd2)
     myconn.close()
