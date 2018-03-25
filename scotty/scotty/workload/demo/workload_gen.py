@@ -16,25 +16,25 @@ def run(context):
     logger.info('{}'.format(workload.params['greeting']))
     logger.info('I\'m workload generator {}'.format(workload.name))
     logger.info('Resource endpoint: {}'.format(demo_resource.endpoint))
+    myconn = paramiko.SSHClient()
+    myconn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    myconn.connect('10.1.0.2', port=22, username='cloud',
+               password='Sendate2017', look_for_keys=False, allow_agent=False)
+    myshell = myconn.invoke_shell()
     for i in range(0, iterations):
         logger.info('Iteration: {}'.format(i))
         if workload.name == "iperf3_test":
-            myconn = paramiko.SSHClient()
-            myconn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            myconn.connect('10.1.0.2', port=22, username='cloud',
-                           password='Sendate2017', look_for_keys=False, allow_agent=False)
-            myshell = myconn.invoke_shell()
             shell_cmd = ' iperf3  -c  10.6.3.101 -u -b 0 -l %s -n 300000000 -V -J | tee results/test_result_%s.json  \n' % (
                 str(1000 + 100 * i), str(i + 1))
             logger.info(shell_cmd)
             myshell.send(shell_cmd)
-            myconn.close()
     #        output = myshell.recv(65535)
     #        logger.info(output)
     #        mystr = output.decode(encoding='UTF-8')
     #        logger.info(mystr)
         time.sleep(sleep_in_sec)
     result = 'result'
+    myconn.close()
     return result
 
 
