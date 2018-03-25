@@ -15,6 +15,6 @@ workloads:
     params:
       greeting:   "Hallo"
       sleep:      5
-      iterations: 3
+      iterations: 80
     resources:
       demo_res:   demo_resource
