@@ -24,8 +24,8 @@ def run(context):
     for i in range(0, iterations):
         logger.info('Iteration: {}'.format(i))
         if workload.name == "iperf3_test":
-            shell_cmd = ' iperf3  -c  10.6.3.101 -u -b 0 -l %s -n 300000000 -V -J | tee results/test_result_%s.json  \n' % (
-                str(1000 + 100 * i), str(i + 1))
+            shell_cmd = ' iperf3  -c  10.6.3.101 -u -b 0 -l %s -n 300000000 -V -J | tee results/%s_%s.json  \n' % (
+                str(1000 + 100 * i),workload.name, str(i + 1))
             logger.info(shell_cmd)
             myshell.send(shell_cmd)
     #        output = myshell.recv(65535)
