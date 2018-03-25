@@ -49,4 +49,16 @@ def collect(context):
 def clean(context):
     workload = context.v1.workload
     logger.info('I\'m workload cleaner {}'.format(workload.name))
+    myconn = paramiko.SSHClient()
+    myconn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    myconn.connect('10.1.0.2', port=22, username='cloud',
+               password='Sendate2017', look_for_keys=False, allow_agent=False)
+    myshell = myconn.invoke_shell()
+    shell_cmd = ' tar -czvf '+workload.name+'_$(date -d "today" +"%Y%m%d%H%M").tar.gz results \n'
+    logger.info(shell_cmd)
+    myshell.send(shell_cmd)
+    shell_cmd2 = ' rm results/* \n'
+    logger.info(shell_cmd2)
+    myshell.send(shell_cmd2)
+    myconn.close()
     pass
