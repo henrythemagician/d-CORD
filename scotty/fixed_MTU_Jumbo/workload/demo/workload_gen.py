@@ -65,5 +65,6 @@ def clean(context):
     shell_cmd2 = ' rm '+workload.name+'_results/* \n'
     logger.info(shell_cmd2)
     myshell.send(shell_cmd2)
+    time.sleep(1)
     myconn.close()
     pass
