@@ -14,7 +14,7 @@ workloads:
     generator: file:workload/demo
     params:
       greeting: "Hallo"
-      sleep: 5
+      sleep: 10
       iterations: 5
     resources:
       demo_res: demo_resource
