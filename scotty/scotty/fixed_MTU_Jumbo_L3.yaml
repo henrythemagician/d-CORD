@@ -19,6 +19,6 @@ workloads:
       clientIP:   10.6.25.1
       portspeed:  10
       ipv6:       0
-      upd:        0
+      udp:        0
       resources:
       demo_res:   demo_resource
