@@ -15,7 +15,7 @@ def run(context):
     sleep_in_sec = workload.params['sleep']
     clientIP = workload.params['clientIP']
     portspeed = workload.params['portspeed']
-    upd_mode = workload.params['udp']
+    udp_mode = workload.params['udp']
     ipv6_mode = workload.params['ipv6']
     udp_string = ""
     if udp_mode == 1:
