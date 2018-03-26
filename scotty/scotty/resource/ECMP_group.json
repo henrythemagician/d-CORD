@@ -1,0 +1,17 @@
+{
+  "type": "SELECT",
+  "deviceId": "of:00008cea1b96f320",
+  "appCookie": "0x023C",
+  "givenGroupId": "1879048222",
+  "buckets": [{
+    "type": "SELECT",
+    "weight": 1,
+    "treatment": {
+      "instructions": [{
+        "type": "GROUP",
+        "groupId": "GroupId{id=0x2000001c}"
+      }],
+      "deferred": []
+    }
+  }]
+}

@@ -44,6 +44,17 @@ Parsed_data3 = json.loads(fileoutput3)
 nom_dataframe3 = json_normalize(Parsed_data3)
 nom_dataframe3.to_csv('./combined_results/fixed_MTU_Jumbo_results.csv', sep=',')
 
+import pandas as pd
+
+read_blksize_seconds_df = pd.read_csv('./combined_results/fixed_data_results.csv', usecols = ['start.test_start.blksize','end.sum.seconds','start.test_start.bytes','end.sum.bytes','end.sum.bits_per_second','end.sum.jitter_ms','end.sum.lost_packets','end.sum.packets','end.sum.lost_percent'] )
+read_blksize_seconds_df.to_csv('./combined_results/simplified_fixed_data_results.csv',sep=',')
+
+read_blksize_seconds_df2 = pd.read_csv('./combined_results/fixed_MTU_results.csv', usecols = ['start.test_start.blksize','end.sum.seconds','start.test_start.bytes','end.sum.bytes','end.sum.bits_per_second','end.sum.jitter_ms','end.sum.lost_packets','end.sum.packets','end.sum.lost_percent'] )
+read_blksize_seconds_df2.to_csv('./combined_results/simplified_fixed_MTU_results.csv',sep=',')
+
+read_blksize_seconds_df3 = pd.read_csv('./combined_results/fixed_MTU_Jumbo_results.csv', usecols = ['start.test_start.blksize','end.sum.seconds','start.test_start.bytes','end.sum.bytes','end.sum.bits_per_second','end.sum.jitter_ms','end.sum.lost_packets','end.sum.packets','end.sum.lost_percent'] )
+read_blksize_seconds_df3.to_csv('./combined_results/simplified_fixed_MTU_Jumbo_results.csv',sep=',')
+
 finalname='combined_results_$(date -d "today" +"%Y%m%d%H%M").tar.gz'
 os.system(' tar -czvf '+finalname+' combined_results')
 os.system('rsync -v -e ssh '+finalname+' vagrant@10.1.0.1:~')
