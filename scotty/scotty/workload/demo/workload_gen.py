@@ -14,6 +14,7 @@ def run(context):
     iterations = workload.params['iterations']
     sleep_in_sec = workload.params['sleep']
     clientIP = workload.params['clientIP']
+    portspeed = workload.params['portspeed']
     logger.info('{}'.format(workload.params['greeting']))
     logger.info('I\'m workload generator {}'.format(workload.name))
     logger.info('Resource endpoint: {}'.format(demo_resource.endpoint))
@@ -26,14 +27,14 @@ def run(context):
     for i in range(0, iterations):
         logger.info('Iteration: {}'.format(i))
         if workload.name == "fixed_data":
-            shell_cmd = ' iperf3  -c  '+clientIP+' -u -b 0 -l %s -n 300000000 -V -J | tee %s_results/%s_%s.json  \n' % (
-                str(1000 + 100 * i),workload.name,workload.name, str(i + 1))
+            shell_cmd = ' iperf3  -c  '+clientIP+' -u -b 0 -l %s -n %s -V -J | tee %s_results/%s_%s.json  \n' % (
+                str(1000 + 100 * i),str(300000000 * portspeed),workload.name,workload.name, str(i + 1))
         if workload.name == "fixed_MTU":
             shell_cmd = ' iperf3  -c  '+clientIP+' -u -b 0 -l 1500 -n %s -V -J | tee %s_results/%s_%s.json  \n' % (
-                str(5000000 + 5000000 * i),workload.name,workload.name, str(i + 1))
+                str((5000000 + 5000000 * i)*portspeed),workload.name,workload.name, str(i + 1))
         if workload.name == "fixed_MTU_Jumbo":
             shell_cmd = ' iperf3  -c  '+clientIP+' -u -b 0 -l 8950 -n %s -V -J | tee %s_results/%s_%s.json  \n' % (
-                str(5000000 + 5000000 * i),workload.name,workload.name, str(i + 1))
+                str((5000000 + 5000000 * i)*portspeed),workload.name,workload.name, str(i + 1))
         logger.info(shell_cmd)
         myshell.send(shell_cmd)
         time.sleep(sleep_in_sec)

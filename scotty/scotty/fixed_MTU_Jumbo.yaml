@@ -17,5 +17,6 @@ workloads:
       sleep:      5
       iterations: 60
       clientIP:   10.6.3.101
+      portspeed:  1
     resources:
       demo_res:   demo_resource
