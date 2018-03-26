@@ -20,5 +20,5 @@ workloads:
       portspeed:  10
       ipv6:       0
       udp:        0
-      resources:
+    resources:
       demo_res:   demo_resource
