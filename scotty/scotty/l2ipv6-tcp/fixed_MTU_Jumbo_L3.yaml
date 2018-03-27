@@ -1,0 +1,24 @@
+description:      |
+  "This is a example for an experiment definition in scotty
+  The sections are
+    - description
+    - resources
+    - workloads"
+resources:
+  - name:         demo_resource
+    generator:    file:../resource/demo
+  - name:         demo_resource_2
+    generator:    file:../resource/demo
+workloads:
+  - name:         fixed_MTU_Jumbo
+    generator:    file:../workload/demo
+    params:
+      greeting:   "Hallo"
+      sleep:      5
+      iterations: 60
+      clientIP:   33::1
+      portspeed:  10
+      ipv6:       1
+      udp:        0
+    resources:
+      demo_res:   demo_resource
