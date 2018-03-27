@@ -17,7 +17,7 @@ workloads:
       sleep:      5
       iterations: 80
       clientIP:   33::1
-      portspeed:  10
+      portspeed:  1
       ipv6:       1
       udp:        1
     resources:
