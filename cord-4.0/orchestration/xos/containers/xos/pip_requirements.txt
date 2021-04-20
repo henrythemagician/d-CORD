@@ -12,7 +12,7 @@ Routes==2.3.1
 WebOb==1.6.1
 amqp==1.4.9
 attrs==17.2.0
-ansible==2.2.2.0
+ansible==2.9.20
 anyjson==0.3.3
 appdirs==1.4.0
 asn1crypto==0.22.0
