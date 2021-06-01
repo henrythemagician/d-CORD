@@ -127,7 +127,7 @@ stevedore==1.17.1
 supervisor==3.0b2
 unicodecsv==0.14.1
 uritemplate==0.6
-urllib3==1.7.1
+urllib3==1.26.5
 warlock==1.2.0
 wheel==0.24.0
 wrapt==1.10.8
