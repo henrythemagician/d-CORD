@@ -37,7 +37,7 @@ django-filter==0.14.0
 django-ipware==1.1.5
 django-timezones==0.2
 djangorestframework==3.3.3
-dnslib==0.9.6
+dnslib==0.9.17
 docutils==0.13.1
 docker-compose==1.9.0
 docker-py==1.10.6
