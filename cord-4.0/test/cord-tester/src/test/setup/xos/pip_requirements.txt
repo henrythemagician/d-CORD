@@ -129,7 +129,7 @@ unicodecsv==0.14.1
 uritemplate==0.6
 urllib3==1.7.1
 warlock==1.2.0
-wheel==0.24.0
+wheel==0.38.1
 wrapt==1.10.8
 wsgiref==0.1.2
 redis==2.10.5
